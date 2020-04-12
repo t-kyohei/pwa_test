@@ -17,6 +17,8 @@
 <script>
   // Your web app's Firebase configuration
   var firebaseConfig = {
+  };
+var messaging = firebase.initializeApp({
     apiKey: "AIzaSyBxGdAwuzkQDfbtDiwXe1JqQyVveTUVVCk",
     authDomain: "pwatest-4b3af.firebaseapp.com",
     databaseURL: "https://pwatest-4b3af.firebaseio.com",
@@ -25,10 +27,7 @@
     messagingSenderId: "389077285193",
     appId: "1:389077285193:web:79bb7a8ca90c59cbb40298",
     measurementId: "G-N2NQF7KNGJ"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics()
+}).messaging();
 var serviceWorker = navigator.serviceWorker;
 
 messaging.requestPermission();
