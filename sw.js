@@ -8,7 +8,7 @@ self.addEventListener("push", function(event) {
         throw new Error('User not subscribed')
     })
     .then(function(res) {
-      return fetch('/notifications.json')
+      return fetch('notifications.json')
     })
     .then(function(res) {
       if (res.status === 200) {
