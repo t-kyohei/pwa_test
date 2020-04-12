@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<link rel="manifest" href="manifest.json">
+<title>Push Notification</title>
+</head>
+<body>
+<script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+<script>
+firebase.initializeApp({
+    apiKey: "AIzaSyBxGdAwuzkQDfbtDiwXe1JqQyVveTUVVCk",
+    authDomain: "pwatest-4b3af.firebaseapp.com",
+    databaseURL: "https://pwatest-4b3af.firebaseio.com",
+    projectId: "pwatest-4b3af",
+    storageBucket: "pwatest-4b3af.appspot.com",
+    messagingSenderId: "389077285193",
+    appId: "1:389077285193:web:79bb7a8ca90c59cbb40298",
+    measurementId: "G-N2NQF7KNGJ"
+})
+
+var messaging = firebase.messaging();
+var serviceWorker = navigator.serviceWorker;
+
+messaging.requestPermission();
+
+serviceWorker.register('serviceworker.js').then(() => {
+    return serviceWorker.ready;
+}).then(regist => {
+    messaging.useServiceWorker(regist);
+    messaging.requestPermission().then(() => {
+        messaging.getToken().then(token => {
+            console.log(token);
+        });
+    });
+});
+</script>
+</body>
+</html>
