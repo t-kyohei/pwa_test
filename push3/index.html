@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<link rel="manifest" href="manifest.json">
+<title>Push Notification</title>
+</head>
+<body>
+
+<script src="https://www.gstatic.com/firebasejs/5.5.4/firebase.js"></script>
+<script src="main.js"></script>
+
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBxGdAwuzkQDfbtDiwXe1JqQyVveTUVVCk",
+    authDomain: "pwatest-4b3af.firebaseapp.com",
+    databaseURL: "https://pwatest-4b3af.firebaseio.com",
+    projectId: "pwatest-4b3af",
+    storageBucket: "pwatest-4b3af.appspot.com",
+    messagingSenderId: "389077285193",
+    appId: "1:389077285193:web:79bb7a8ca90c59cbb40298",
+    measurementId: "G-N2NQF7KNGJ"
+  };
+  firebase.initializeApp(config);
+</script>
+
+
+
+<p>
+    <input type="button" id="btnSubscribe" value="通知を許可する">
+    <input type="button" id="btnUnSubscribe" value="トークン削除" style="display:none;">
+</p>
+<p><input type="text" value="YOUR-INCETANCE-ID-TOKEN" id="textInstanceIdToken" style="width:100%;box-sizing:border-box;"></p>
+<div id="sendWebPushArea" style="display:none;">
+    <p>下記をコピーしてこのタブを閉じ、別ブラウザで見てください</p>
+    <input type="text" value="" id="sendWebPush" style="width:100%;box-sizing:border-box;">
+</div>
+
+
+</body>
+</html>
