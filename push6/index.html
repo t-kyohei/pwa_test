@@ -56,7 +56,7 @@ if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('serviceworker.js').then(function(reg) {
         reg.pushManager.subscribe({userVisibleOnly: true,applicationServerKey: decodeBase64URL("BCQU1_nrPUUFceRvfUDCPAMrg2OPt3qgoV0StBkEfbhqceFPNpo98j-IJ3JQxer5o2K1nh7Y2ZihwclR661eqE8")}).then(function(sub) {
           console.log(sub.endpoint);
-          alert(sub.endpoint);
+          document.write(sub.endpoint);
         });
     }).catch(function(error) {
         console.log(error);
