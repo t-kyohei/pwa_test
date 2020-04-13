@@ -2,7 +2,7 @@
     "name": "PWATEST",
     "short_name": "PWATEST",
     "description": "PWATESTåüèÿä¬ã´",
-    "start_url": "/?utm_source=homescreen&utm_medium=pwa",
+    "start_url": "https://t-kyohei.github.io/pwa_test/push5/?utm_source=homescreen&utm_medium=pwa",
     "display": "standalone",
     "lang": "ja",
     "dir": "auto",
@@ -11,12 +11,12 @@
     "background_color": "#fffce0",
     "icons": [
         {
-            "src": "/icon.png",
+            "src": "icon.png",
             "type": "image/png",
             "sizes": "192x192"
         },
         {
-            "src": "/Icon_Bird_512x512.png",
+            "src": "Icon_Bird_512x512.png",
             "type": "image/png",
             "sizes": "512x512"
         }
