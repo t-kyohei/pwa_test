@@ -14,7 +14,7 @@
     </head>
     <body>
     
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
 
 <!-- TODO: Add SDKs for Firebase products that you want to use
@@ -24,19 +24,19 @@
 <script>
   // Your web app's Firebase configuration
   var firebaseConfig = {
-    apiKey: "AIzaSyBxGdAwuzkQDfbtDiwXe1JqQyVveTUVVCk",
-    authDomain: "pwatest-4b3af.firebaseapp.com",
-    databaseURL: "https://pwatest-4b3af.firebaseio.com",
-    projectId: "pwatest-4b3af",
-    storageBucket: "pwatest-4b3af.appspot.com",
-    messagingSenderId: "389077285193",
-    appId: "1:389077285193:web:79bb7a8ca90c59cbb40298",
-    measurementId: "G-N2NQF7KNGJ"
+    apiKey: "AIzaSyDCySTlKGpoCf4A4-GPNKZVlmD7UZNBdoc",
+    authDomain: "pwa-test2-236d4.firebaseapp.com",
+    databaseURL: "https://pwa-test2-236d4.firebaseio.com",
+    projectId: "pwa-test2-236d4",
+    storageBucket: "pwa-test2-236d4.appspot.com",
+    messagingSenderId: "83284008014",
+    appId: "1:83284008014:web:bfde05f8676feb8434371f",
+    measurementId: "G-7XXES0Q2XT"
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
-  
+
   
   function decodeBase64URL(data) {
   if(typeof data !== 'string')
@@ -54,7 +54,7 @@
 <script>
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('serviceworker.js').then(function(reg) {
-        reg.pushManager.subscribe({userVisibleOnly: true,applicationServerKey: decodeBase64URL("BAQ3YNtOPBltSHC8RueJdGSSJsucU52OscHh_eI50oiLIL-2cmuGAPWrVgWHaMe2yFAl6CrJIePBAlNKATwuSuY")}).then(function(sub) {
+        reg.pushManager.subscribe({userVisibleOnly: true,applicationServerKey: decodeBase64URL("BCQU1_nrPUUFceRvfUDCPAMrg2OPt3qgoV0StBkEfbhqceFPNpo98j-IJ3JQxer5o2K1nh7Y2ZihwclR661eqE8")}).then(function(sub) {
           console.log(sub.endpoint);
           alert(sub.endpoint);
         });
