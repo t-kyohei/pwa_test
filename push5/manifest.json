@@ -11,12 +11,12 @@
     "background_color": "#fffce0",
     "icons": [
         {
-            "src": "icon.png",
+            "src": "./icon.png",
             "type": "image/png",
             "sizes": "192x192"
         },
         {
-            "src": "Icon_Bird_512x512.png",
+            "src": "./Icon_Bird_512x512.png",
             "type": "image/png",
             "sizes": "512x512"
         }
