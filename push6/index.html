@@ -44,6 +44,7 @@ if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('serviceworker.js').then(function(reg) {
         reg.pushManager.subscribe({userVisibleOnly: true}).then(function(sub) {
           console.log(sub.endpoint);
+          alert(sub.endpoint);
         });
     }).catch(function(error) {
         console.log(error);
