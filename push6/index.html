@@ -44,7 +44,7 @@
 <script>
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('serviceworker.js').then(function(reg) {
-        reg.pushManager.subscribe({userVisibleOnly: true,applicationServerKey: decodeBase64URL(BAQ3YNtOPBltSHC8RueJdGSSJsucU52OscHh_eI50oiLIL-2cmuGAPWrVgWHaMe2yFAl6CrJIePBAlNKATwuSuY)}).then(function(sub) {
+        reg.pushManager.subscribe({userVisibleOnly: true,applicationServerKey: decodeBase64URL("BAQ3YNtOPBltSHC8RueJdGSSJsucU52OscHh_eI50oiLIL-2cmuGAPWrVgWHaMe2yFAl6CrJIePBAlNKATwuSuY")}).then(function(sub) {
           console.log(sub.endpoint);
           alert(sub.endpoint);
         });
