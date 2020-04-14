@@ -32,7 +32,7 @@ video.addEventListener("click", function() {
 });
 
 //テキストクリック撮影（撮影トリガー 1）
-document.getElementById('rec).click(function() {
+document.getElementById('rec').click(function() {
     take_picture()
 });
 
