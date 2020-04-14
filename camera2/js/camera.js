@@ -48,6 +48,7 @@ function take_picture() {
     ctx.drawImage(video, 0, 0, w, h);
     video.classList.add("none");
     cbtn.classList.add("none");
+    document.getElementById('back').classList.remove("none");
     //canvas.classList.remove("none");
     //canvas‚ğX‚Éimg‚É‘‚«o‚·•û–@
     var img = document.getElementById('img');
