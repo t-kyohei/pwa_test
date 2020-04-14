@@ -51,4 +51,4 @@ function take_picture() {
     //canvas‚ğX‚Éimg‚É‘‚«o‚·•û–@
     var img = document.getElementById('img');
     img.src = canvas.toDataURL('image/png');
-    }
+}
