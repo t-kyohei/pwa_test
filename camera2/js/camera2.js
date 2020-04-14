@@ -1,6 +1,7 @@
 //Javascript
 //video element
-var video = document.getElementById('camera');
+var video = document.querySelector('video');
+//var video = document.getElementById('camera');
 
 //video element（プレビュー画面）をクリックして撮影
 video.addEventListener("click", function() {
