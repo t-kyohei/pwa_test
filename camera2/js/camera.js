@@ -8,7 +8,7 @@ video.addEventListener("click", function() {
 });
 
 //テキストクリック撮影（撮影トリガー 1）
-$("#rec").click(function() {
+document.getElementById('rec').click(function() {
     take_picture()
 });
 
