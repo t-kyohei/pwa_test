@@ -4,12 +4,12 @@ var video = document.getElementById('camera');
 
 //video element（プレビュー画面）をクリックして撮影
 video.addEventListener("click", function() {
-    take_picture()
+    take_picture();
 });
 
 //テキストクリック撮影（撮影トリガー 1）
 document.getElementById('rec').click(function() {
-    take_picture()
+    take_picture();
 });
 
 //撮影関数
