@@ -38,7 +38,7 @@ function take_picture() {
     //videoのstreamをcanvasに書き出す方法
     var video = document.querySelector('video');
     var canvas = document.getElementById('canvas');
-    var cbtn = document.getElementById('cbtn');
+    var rec = document.getElementById('rec');
     var ctx = canvas.getContext('2d');
     //videoの縦幅横幅を取得
     var w = video.offsetWidth;
@@ -47,7 +47,7 @@ function take_picture() {
     canvas.setAttribute("height", h);
     ctx.drawImage(video, 0, 0, w, h);
     video.classList.add("none");
-    cbtn.classList.add("none");
+    rec.classList.add("none");
     document.getElementById('back').classList.remove("none");
     //canvas.classList.remove("none");
     //canvasを更にimgに書き出す方法
