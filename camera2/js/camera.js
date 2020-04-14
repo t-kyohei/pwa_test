@@ -21,3 +21,4 @@ function openCamera() {
         .catch(function(err) {
             console.log(err);
         });
+ }
