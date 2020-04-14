@@ -11,13 +11,15 @@
     <body class="camera-body" onload="openCamera();">
     <video id="camera" width="720px" autoplay></video>
 <!-- 記録用canvas -->
-<canvas id="canvas"></canvas>
+<canvas id="canvas" class="none"></canvas>
 <!-- 記録用img -->
 <img id="img">
 <!-- 撮影トリガー 1-->
 <!--<a id="rec" href="#">TAKE PICTURE</a>-->
 <!-- 撮影トリガー 2-->
+<div id="cbtn" class="btn">
 <input id="rec" type="image" class="camera-btn" src="images/icon_camera02_01.png" value="REC" onclick="take_picture()">
+</div>
     </body>
 
     <script src="js/camera.js"></script>
