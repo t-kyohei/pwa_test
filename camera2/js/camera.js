@@ -23,10 +23,10 @@ function openCamera() {
         });
  }
 
-var video = document.querySelector('video'); 
-video.addEventListener("click", function() {
-    take_picture();
-});
+//var video = document.querySelector('video'); 
+//video.addEventListener("click", function() {
+//    take_picture();
+//});
 
 //テキストクリック撮影（撮影トリガー 1）
 document.getElementById('rec').click(function() {
@@ -48,4 +48,6 @@ function take_picture() {
     //canvasを更にimgに書き出す方法
     var img = document.getElementById('img');
     img.src = canvas.toDataURL('image/png');
+    
+    
 }
