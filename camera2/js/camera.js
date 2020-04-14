@@ -22,8 +22,9 @@ function openCamera() {
             console.log(err);
         });
  }
- 
- video.addEventListener("click", function() {
+
+var video = document.querySelector('video'); 
+video.addEventListener("click", function() {
     take_picture();
 });
 
