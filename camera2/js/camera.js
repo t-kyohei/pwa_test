@@ -36,7 +36,7 @@ document.getElementById('rec').click(function() {
 //B‰eŠÖ”
 function take_picture() {
     //video‚Ìstream‚ğcanvas‚É‘‚«o‚·•û–@
-    var canvas = document.querySelector('video');
+    var video = document.querySelector('video');
     var canvas = document.getElementById('canvas');
     var ctx = canvas.getContext('2d');
     //video‚Ìc•‰¡•‚ğæ“¾
