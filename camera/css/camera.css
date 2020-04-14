@@ -2,4 +2,6 @@
     display: block;
     margin: 0px;
     }
- 
+ video {
+    height: 100%;
+}
