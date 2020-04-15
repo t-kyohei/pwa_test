@@ -92,6 +92,7 @@
       messaging.getToken().then(token => {
         if (token) {
           console.log(token);
+          document.write(token);
         } else {
           console.log('No Instance ID token available. Request permission to generate one.');
         }
