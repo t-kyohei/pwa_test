@@ -92,9 +92,10 @@
       messaging.getToken().then(token => {
         if (token) {
           console.log(token);
+          var  divp = document.getElementById("newitem");
           var div = document.createElement('div');
           div.textContent = token;
-          element.appendChild(div);
+          divp.appendChild(div);
         } else {
           console.log('No Instance ID token available. Request permission to generate one.');
         }
