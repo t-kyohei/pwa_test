@@ -1,6 +1,6 @@
 {
-  "short_name": "Firebase のプッシュ通知購読アプリ",
-  "name": "Firebaseのプッシュ通知購読アプリ",
+  "short_name": "Firebase 縺ｮ繝励ャ繧ｷ繝･騾夂衍雉ｼ隱ｭ繧｢繝励Μ",
+  "name": "Firebase縺ｮ繝励ャ繧ｷ繝･騾夂衍雉ｼ隱ｭ繧｢繝励Μ",
   "start_url": "index.html",
   "gcm_sender_id": "103953800507"
 }
