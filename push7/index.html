@@ -7,11 +7,11 @@
   <title>プッシュ通知の購読</title>
   <link rel="manifest" href="./manifest.json">
   <!--<link rel="stylesheet" type="text/css" href="./bootstrap.min.css">-->
- <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-app.js"></script>
+ <script src="./firebase-app.js"></script>
 
 <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-messaging.js"></script>
+<script src="./firebase-messaging.js"></script>
 </head>
 
 <body>
@@ -65,8 +65,7 @@
 
     function getSubscription() {
       messaging.getToken().then(token => {
-        if (!token) {
-          getNotification();
+        if (!token) {          getNotification();
         } else {
           displayToken();
         }
