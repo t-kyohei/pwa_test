@@ -24,6 +24,8 @@ messaging.setBackgroundMessageHandler(function (payload) {
 var CACHE_NAME = 'pwa-push-test-caches';
 var urlsToCache = ['./index.html'];
 
+
+
 self.addEventListener('install', function(event) {
     event.waitUntil(
         caches
