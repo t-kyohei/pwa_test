@@ -67,7 +67,7 @@ openReq.onsuccess = function (event) {
               			var locationlong = pos.coords.longitude;
                 		var date = new Date().toLocaleString();
    
-				var trans = db.transaction(store_name, "readwrite");
+				var trans = db.transaction(storeName, "readwrite");
     				var store = trans.objectStore(store_name);
     				store.put({lat: locationlat,long:locationlong,time:date});
 			});
