@@ -9,6 +9,7 @@
     <meta name="apple-mobile-web-app-title" content="位置情報取得マン">
     <link rel="stylesheet" type="text/css" href="../btn.css" />
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="./js/location.js"></script>
 </head>
 <script>
 if ('serviceWorker' in navigator) {
@@ -36,7 +37,18 @@ function getLocation() {
                 var locationlong = pos.coords.longitude;
                 $('#location .lat').append(locationlat);
                 $('#location .long').append(locationlong);
+               	var date = new Date();
+                $('#location .time').append(date.toLocaleString());
+
          });
+         
+         
+
+
+
+document.write(hour+"時",+minute+"分"+second+"秒");
+
+</script>
     } else {
         window.alert("本ブラウザではGeolocationが使えません");
     }
@@ -54,7 +66,7 @@ function getLocation() {
     <tr id="location">
       <td class="lat"></td>
       <td class="long"></td>
-      <td></td>
+      <td class="time"></td>
     </tr>
   </table>
   
