@@ -23,7 +23,7 @@ if ('serviceWorker' in navigator) {
 <body>
   <h1>位置情報取得</h1>
   
- <button class="btn-square" onclick="getLocation();">位置情報取得</button>
+ <button class="btn-square" id="btnLocation">位置情報取得</button>
 
 
 
@@ -52,7 +52,7 @@ function getLocation() {
 </script>
 
 
-<table border="1">
+<table border="1" id="locationTable">
     <tr>
       <th>緯度</th>
       <th>経度</th>
