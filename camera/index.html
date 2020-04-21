@@ -5,29 +5,27 @@
         <link rel="manifest" href="manifest.json">
         <link rel="apple-touch-icon" href="icon.png" sizes="192x192">
         <link rel="stylesheet" type="text/css" href="css/camera.css">
+        <link rel="stylesheet" type="text/css" href="css/btn.css">
+        <!--    <script src="js/camera2.js"></script>-->
     </head>
 
     <body class="camera-body" onload="openCamera();">
-        <video autoplay playsinline></video>
+    <video id="camera" width="720px" autoplay></video>
+<!-- 記録用canvas -->
+<canvas id="canvas" class="none"></canvas>
+<!-- 記録用img -->
+<img id="img">
+<!-- 撮影トリガー 1-->
+<!--<a id="rec" href="#">TAKE PICTURE</a>-->
+<!-- 撮影トリガー 2-->
+<div id="cbtn" class="btn">
+<input id="rec" type="image" class="camera-btn" src="images/icon_camera02_01.png" value="REC" onclick="take_picture()">
+<a href="/pwa_test" id="back" class="none btn-square">Back</a>
+</div>
     </body>
 
     <script src="js/camera.js"></script>
     <script>
-      // manifestのlinkタグを生成
-        function setManifest(path) {
-            const manifest = document.createElement('link');
-            manifest.rel = 'manifest';
-            manifest.href = path;
-            document.head.appendChild(manifest);
-        }
-
-        // OSに応じて読み込むmanifestを変更
-        var userAgent = navigator.userAgent.toLowerCase();
-        if (userAgent.indexOf("iphone") > 0 || userAgent.indexOf("ipad") > 0) {
-            setManifest('manifest_ios.json')
-        } else {
-            setManifest('manifest.json')
-        }
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('sw.js').then(function(registration) {
                 console.log('ServiceWorker registration successful with scope: ', registration.scope);
