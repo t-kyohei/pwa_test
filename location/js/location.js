@@ -77,8 +77,5 @@ openReq.onsuccess = function (event) {
 		location.reload();
     });
 
-   
+
 }
-
-
-};
