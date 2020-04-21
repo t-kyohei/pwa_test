@@ -51,7 +51,7 @@ openReq.onsuccess = function (event) {
 
     	cursor.continue();
 	
-  Å@Å@}
+	}
     else {
     alert("Got all locations: " + locations);
     } 
