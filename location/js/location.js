@@ -70,9 +70,11 @@ openReq.onsuccess = function (event) {
 				var trans = db.transaction(store_name, "readwrite");
     				var store = trans.objectStore(store_name);
     				store.put({lat: locationlat,long:locationlong,time:date});
+			});
+
 
         }
-	Å@Å@location.reload();
+		location.reload();
     });
 
    
