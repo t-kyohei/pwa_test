@@ -53,7 +53,7 @@ openReq.onsuccess = function (event) {
 	
 	}
     else {
-    alert("Got all locations: " + locations);
+   // alert("Got all locations: " + locations);
     } 
    };
 
@@ -70,6 +70,22 @@ openReq.onsuccess = function (event) {
 				var trans = db.transaction(storeName, "readwrite");
     				var store = trans.objectStore(storeName);
     				store.put({lat: locationlat,long:locationlong,time:date});
+
+				var table = document.getElementById('locationTable');
+				var newRow = table.insertRow();
+
+				var newCell = newRow.insertCell();
+				var newText = document.createTextNode(locationlat);	
+				newCell.appendChild(newText);
+
+				newCell = newRow.insertCell();
+				newText = document.createTextNode(locationlong);
+				newCell.appendChild(newText);
+
+				newCell = newRow.insertCell();
+				newText = document.createTextNode(date);
+				newCell.appendChild(newText);
+
 			});
 
 
