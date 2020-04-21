@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>位置情報取得マン</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="位置情報取得マン">
+    <link rel="apple-touch-icon" href="icon.png">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<script>
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js').then(function(registration) {
+        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+    }).catch(function(err) {
+        console.log('ServiceWorker registration failed: ', err);
+    });
+}
+</script>
+<body>
+  <h1>位置情報取得マン</h1>
+<script type="text/javascript">
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+        function (pos) {
+                var locationlat = pos.coords.latitude;
+                var locationlong = pos.coords.longitude;
+                $('#location .lat').append(locationlat);
+                $('#location .long').append(locationlong);
+                var linktag = 'https://www.google.co.jp/search?q=' + locationlat + ',' + locationlong;
+                $('#linktag').attr('href',linktag);
+
+                var linelink = 'http://line.me/R/msg/text/?'+ '%20' + linktag;
+                $('#linetag').attr('href',linelink);
+        });
+    } else {
+        window.alert("本ブラウザではGeolocationが使えません");
+    }
+</script>
+    <div id="location">
+      <p class="lat">緯度: </p>
+      <p class="long">経度: </p>
+    </div>
+    <p><a id="linktag" href="">現在地の地図を表示</a></p>
+    <p><a id="linetag" href="">現在地をLINEで送る</a></p>
+</body>
+</html>
