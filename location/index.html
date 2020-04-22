@@ -12,16 +12,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script src="./js/location.js"></script>
     
-<script type="text/javascript">
 
-function getLocationWorker(){
-const channel = new MessageChannel();
- if (!("serviceWorker" in navigator)) {
-navigator.serviceWorker.controller
-  .postMessage('Hello, world', [channel.port2]);
-  }
-}
-</script>
 </head>
 <body>
   <h1>位置情報取得</h1>
@@ -60,6 +51,17 @@ function getLocation() {
     }
     
  }
+</script>
+
+<script type="text/javascript">
+
+function getLocationWorker(){
+const channel = new MessageChannel();
+ if (!("serviceWorker" in navigator)) {
+navigator.serviceWorker.controller
+  .postMessage('Hello, world', [channel.port2]);
+  }
+}
 </script>
 
 
