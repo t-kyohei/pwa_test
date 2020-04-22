@@ -103,7 +103,7 @@ openReq.onsuccess = function (event) {
    	 	var request = store.clear();
 		request.onsuccess = function (event) {
 		// 全件削除後の処理
-		alert("Delete all locations");
+		alert("位置情報を全て削除しました。");
 		location.reload();
 		}
 		
