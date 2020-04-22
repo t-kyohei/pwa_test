@@ -13,16 +13,10 @@
     <script src="./js/location.js"></script>
     
 <script type="text/javascript">
-var woker;
-function init(){
-worker = new Worker("../sw.js");
-worker.onmessage = function(event){
-alert(event.data);
-}
-}
+
 function getLocationWorker(){
 var msg= document.getElementById("text1").value;
-worker.postMessage(msg);
+navigator.serviceWorker.controller.postMessage(msg);
 }
 </script>
 </head>

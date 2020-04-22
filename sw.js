@@ -46,7 +46,7 @@ self.addEventListener("activate", function (event) {
   );
 });
 
-onmessage = function(event){
+self.addEventListener("message", function (event) {
 
     var count = 0;
     var getlocation = function(){
@@ -87,6 +87,6 @@ onmessage = function(event){
     if(count > 5){
       clearInterval(id);//idをclearIntervalで指定している
     }}, 5000);
-postMessage("位置情報の登録が完了しました。");
+
 }
 
