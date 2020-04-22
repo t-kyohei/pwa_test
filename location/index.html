@@ -11,9 +11,26 @@
     <link rel="stylesheet" type="text/css" href="../btn.css" />
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script src="./js/location.js"></script>
+    
+    <script type="text/javascript">
+var woker;
+function init(){
+worker = new Worker("worker.js");
+worker.onmessage = function(event){
+alert(event.data);
+}
+}
+function action(){
+var msg= document.getElementById("text1").value;
+worker.postMessage(msg);
+}
+</script>
 </head>
-<body>
+<body onload="init();">
   <h1>位置情報取得</h1>
+  
+  名前：<input type="text" id="text1">
+<input type="button" onclick="action();" value="send">
   
  <button class="btn-square" id="btnLocation">位置情報取得</button>
 
