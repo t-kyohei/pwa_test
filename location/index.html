@@ -18,7 +18,6 @@ function getLocationWorker(){
 const channel = new MessageChannel();
 navigator.serviceWorker.controller
   .postMessage('Hello, world', [channel.port2]);
-});
 }
 </script>
 </head>
