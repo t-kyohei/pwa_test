@@ -1,4 +1,4 @@
-var CACHE_NAME = 'pwa-camera-test-caches';
+var CACHE_NAME = 'pwa-camera-test-caches-001';
 var urlsToCache = ['./index.html', 
 					'./btn.css',
 					'./camera/',
@@ -24,4 +24,23 @@ self.addEventListener('fetch', function(event) {
                 return response ? response : fetch(event.request);
             })
     );
+    
+});
+
+
+self.addEventListener("activate", function (event) {
+  event.waitUntil(
+    (function () {
+      caches.keys().then(function (oldCacheKeys) {
+        oldCacheKeys
+          .filter(function (key) {
+            return key !== CACHE_NAME;
+          })
+          .map(function (key) {
+            return caches.delete(key);
+          });
+      });
+      clients.claim();
+    })()
+  );
 });
