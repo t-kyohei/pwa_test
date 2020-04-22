@@ -2,14 +2,14 @@ var dbName = 'sampleDB';
 var dbVersion = '1';
 var storeName  = 'location';
 var count = 0;
-//@DB–¼‚ğw’è‚µ‚ÄÚ‘±
+//ã€€DBåã‚’æŒ‡å®šã—ã¦æ¥ç¶š
 var openReq  = indexedDB.open(dbName, dbVersion);
-// Ú‘±‚É¸”s
+// æ¥ç¶šã«å¤±æ•—
 openReq.onerror = function (event) {
-    console.log('Ú‘±¸”s');
+    console.log('æ¥ç¶šå¤±æ•—');
 }
 
-//DB‚Ìƒo[ƒWƒ‡ƒ“XV(DB‚ÌV‹Kì¬‚àŠÜ‚Ş)‚Ì‚İÀs
+//DBã®ãƒãƒ¼ã‚¸ãƒ§ãƒ³æ›´æ–°(DBã®æ–°è¦ä½œæˆã‚‚å«ã‚€)æ™‚ã®ã¿å®Ÿè¡Œ
 openReq.onupgradeneeded = function (event) {
     var db = event.target.result;
     const objectStore = db.createObjectStore(storeName, {keyPath : 'id',autoIncrement : true })
@@ -20,10 +20,10 @@ openReq.onupgradeneeded = function (event) {
 
 
 
-    console.log('DBXV');
+    console.log('DBæ›´æ–°');
 }
 
-//onupgradeneeded‚ÌŒã‚ÉÀsBXV‚ª‚È‚¢ê‡‚Í‚±‚ê‚¾‚¯Às
+//onupgradeneededã®å¾Œã«å®Ÿè¡Œã€‚æ›´æ–°ãŒãªã„å ´åˆã¯ã“ã‚Œã ã‘å®Ÿè¡Œ
 openReq.onsuccess = function (event) {
     var db = event.target.result;
     var trans = db.transaction(storeName, 'readonly');
@@ -102,7 +102,7 @@ openReq.onsuccess = function (event) {
     
    	 	var request = store.clear();
 		request.onsuccess = function (event) {
-		// ‘SŒíœŒã‚Ìˆ—
+		// å…¨ä»¶å‰Šé™¤å¾Œã®å‡¦ç†
 		alert("Delete all locations");
 		location.reload();
 		}
@@ -111,7 +111,7 @@ openReq.onsuccess = function (event) {
 
     document.getElementById('btnLocationInterval').addEventListener('click', function () {
     
-    alert("10•b‚²‚Æ‚É1•ªŠÔˆÊ’uî•ñ‚ğæ“¾‚µ‚Ü‚·B");
+    alert("5ç§’ã”ã¨ã«ä½ç½®æƒ…å ±ã‚’å–å¾—ã—ã¾ã™ã€‚6å›ã§çµ‚äº†ã—ã¾ã™ã€‚");
     var count = 0;
     var getlocation = function(){
 			if (navigator.geolocation) {
@@ -149,7 +149,7 @@ openReq.onsuccess = function (event) {
 	var id = setInterval(function(){
     getlocation();
     if(count > 5){
-      clearInterval(id);//id‚ğclearInterval‚Åw’è‚µ‚Ä‚¢‚é
+      clearInterval(id);//idã‚’clearIntervalã§æŒ‡å®šã—ã¦ã„ã‚‹
     }}, 10000);
     
     
