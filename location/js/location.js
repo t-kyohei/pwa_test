@@ -149,7 +149,7 @@ openReq.onsuccess = function (event) {
 	var id = setInterval(function(){
     getlocation();
     if(count > 5){
-      clearInterval(id);@//id‚ğclearInterval‚Åw’è‚µ‚Ä‚¢‚é
+      clearInterval(id);//id‚ğclearInterval‚Åw’è‚µ‚Ä‚¢‚é
     }}, 10000);
     
     
