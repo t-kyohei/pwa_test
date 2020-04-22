@@ -15,8 +15,10 @@
 <script type="text/javascript">
 
 function getLocationWorker(){
-var msg= document.getElementById("text1").value;
-navigator.serviceWorker.controller.postMessage(msg);
+const channel = new MessageChannel();
+navigator.serviceWorker.controller
+  .postMessage('Hello, world', [channel.port2]);
+});
 }
 </script>
 </head>
