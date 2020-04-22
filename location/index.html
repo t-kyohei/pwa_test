@@ -12,7 +12,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script src="./js/location.js"></script>
     
-    <script type="text/javascript">
+<script type="text/javascript">
 var woker;
 function init(){
 worker = new Worker("worker.js");
@@ -20,7 +20,7 @@ worker.onmessage = function(event){
 alert(event.data);
 }
 }
-function action(){
+function getLocationWorker(){
 var msg= document.getElementById("text1").value;
 worker.postMessage(msg);
 }
@@ -37,6 +37,8 @@ worker.postMessage(msg);
  <button class="btn-square2" id="btnLocationDel">位置情報削除</button>
 
 <button class="btn-square3" id="btnLocationInterval">位置情報定期取得</button>
+
+<button class="btn-square3" onclick="getLocationWorker()">位置情報定期取得(WebWorker)</button>
 
 
  <script type="text/javascript">
