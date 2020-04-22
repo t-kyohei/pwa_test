@@ -97,7 +97,7 @@ openReq.onsuccess = function (event) {
      document.getElementById('btnLocationDel').addEventListener('click', function () {
 
 		var db = event.target.result;
-    	var trans = db.transaction(storeName, '"readwrite"');
+    	var trans = db.transaction(storeName, 'readwrite');
     	var store = trans.objectStore(storeName);
     
    	 	var request = store.clear();
