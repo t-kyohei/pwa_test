@@ -15,7 +15,7 @@
 <script type="text/javascript">
 var woker;
 function init(){
-worker = new Worker("worker.js");
+worker = new Worker("sw.js");
 worker.onmessage = function(event){
 alert(event.data);
 }
