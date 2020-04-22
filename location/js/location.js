@@ -150,7 +150,7 @@ openReq.onsuccess = function (event) {
     getlocation();
     if(count > 5){
       clearInterval(id);//idをclearIntervalで指定している
-    }}, 10000);
+    }}, 5000);
     
     
     });
