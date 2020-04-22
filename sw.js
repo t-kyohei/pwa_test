@@ -85,8 +85,8 @@ onmessage = function(event){
 	var id = setInterval(function(){
     getlocation();
     if(count > 5){
-      clearInterval(id);//id‚ğclearInterval‚Åw’è‚µ‚Ä‚¢‚é
+      clearInterval(id);//idã‚’clearIntervalã§æŒ‡å®šã—ã¦ã„ã‚‹
     }}, 5000);
-postMessage("ˆÊ’uî•ñ‚Ì“o˜^‚ªŠ®—¹‚µ‚Ü‚µ‚½B");
+postMessage("ä½ç½®æƒ…å ±ã®ç™»éŒ²ãŒå®Œäº†ã—ã¾ã—ãŸã€‚");
 }
 
