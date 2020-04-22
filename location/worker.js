@@ -2,7 +2,6 @@ onmessage = function(event){
 
 
     
-    alert("5秒ごとに位置情報を取得します。6回で終了します。");
     var count = 0;
     var getlocation = function(){
 			if (navigator.geolocation) {
