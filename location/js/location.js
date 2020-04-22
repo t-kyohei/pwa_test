@@ -125,20 +125,20 @@ openReq.onsuccess = function (event) {
     				    	var store = trans.objectStore(storeName);
     						store.put({lat: locationlat,long:locationlong,time:date});
 
-							var table = document.getElementById('locationTable');
-							var newRow = table.insertRow();
+							//var table = document.getElementById('locationTable');
+							//var newRow = table.insertRow();
 
-							var newCell = newRow.insertCell();
-							var newText = document.createTextNode(locationlat);	
-							newCell.appendChild(newText);
+							//var newCell = newRow.insertCell();
+							//var newText = document.createTextNode(locationlat);	
+							//newCell.appendChild(newText);
 
-							newCell = newRow.insertCell();
-							newText = document.createTextNode(locationlong);
-							newCell.appendChild(newText);
+							//newCell = newRow.insertCell();
+							//newText = document.createTextNode(locationlong);
+							//newCell.appendChild(newText);
 
-							newCell = newRow.insertCell();
-							newText = document.createTextNode(date);
-							newCell.appendChild(newText);
+							//newCell = newRow.insertCell();
+							//newText = document.createTextNode(date);
+							//newCell.appendChild(newText);
 
 					});
         	}
