@@ -88,5 +88,5 @@ self.addEventListener("message", function (event) {
       clearInterval(id);//idをclearIntervalで指定している
     }}, 5000);
 
-}
+});
 
