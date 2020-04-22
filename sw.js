@@ -2,8 +2,9 @@ var CACHE_NAME = 'pwa-camera-test-caches-004';
 var urlsToCache = ['./index.html', 
 					'./btn.css?001',
 					'./camera/',
-					'./location/?006'
-					
+					'./location/index.html',
+					'./location/js/location.js'
+
 					];
 
 self.addEventListener('install', function(event) {
