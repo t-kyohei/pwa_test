@@ -1,6 +1,6 @@
-var CACHE_NAME = 'pwa-camera-test-caches-003';
+var CACHE_NAME = 'pwa-camera-test-caches-004';
 var urlsToCache = ['./index.html', 
-					'./btn.css',
+					'./btn.css?001',
 					'./camera/',
 					'./location/?006'
 					
