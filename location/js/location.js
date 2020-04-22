@@ -92,6 +92,23 @@ openReq.onsuccess = function (event) {
         }
 		//location.reload();
     });
+    
+    
+     document.getElementById('btnLocationDel').addEventListener('click', function () {
+
+		var db = event.target.result;
+    	var trans = db.transaction(storeName, '"readwrite"');
+    	var store = trans.objectStore(storeName);
+    
+   	 	var request = store.clear();
+		request.onsuccess = function (event) {
+		// ‘SŒíœŒã‚Ìˆ—
+		alert("Delete all locations");
+		location.reload();
+		}
+		
+    });
+
 
 
 }
