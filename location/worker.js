@@ -11,7 +11,7 @@ onmessage = function(event){
     		            	var locationlat = pos.coords.latitude;
     		          		var locationlong = pos.coords.longitude;
     		            	var date = new Date().toLocaleString();
-   /
+   
 							var trans = db.transaction(storeName, "readwrite");
     				    	var store = trans.objectStore(storeName);
     						store.put({lat: locationlat,long:locationlong,time:date});
