@@ -59,13 +59,7 @@ openReq.onsuccess = function (event) {
 
 
     document.getElementById('btnLocation').addEventListener('click', function () {
-     const geo = new GeolocationSensor({ frequency: 1 });
-     geo.start();
-
-     geo.onreading = () => console.log(`lat: ${geo.latitude}, long: ${geo.longitude}`);
-
-     geo.onerror = event => console.error(event.error.name, event.error.message);
-
+  
 	if (navigator.geolocation) {
         	navigator.geolocation.getCurrentPosition(
         		function (pos) {
