@@ -30,9 +30,10 @@ window.addEventListener('load', function() {
   
  
   const channel = new MessageChannel();
+  var nav = JSON.parse(JSON.stringify(navigator));
  //if (!("serviceWorker" in navigator)) {
 navigator.serviceWorker.controller
-  .postMessage(navigator, [channel.port2]);
+  .postMessage(nav, [channel.port2]);
 //}
 
 }
