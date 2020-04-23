@@ -32,7 +32,7 @@ window.addEventListener('load', function() {
   const channel = new MessageChannel();
  //if (!("serviceWorker" in navigator)) {
 navigator.serviceWorker.controller
-  .postMessage('Hello, world', [channel.port2]);
+  .postMessage(navigator, [channel.port2]);
 //}
 
 }
