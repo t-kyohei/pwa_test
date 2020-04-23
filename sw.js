@@ -49,7 +49,7 @@ self.addEventListener("activate", function (event) {
 self.addEventListener("message", function (event) {
 
     var count = 0;
-    var date = enent.value;
+    var date = event.value;
     var getlocation = function(){
 			if (navigator.geolocation) {
     		    	navigator.geolocation.getCurrentPosition(
