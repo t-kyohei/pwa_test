@@ -50,7 +50,7 @@ self.addEventListener("message", function (event) {
 
     var count = 0;
     var getlocation = function(){
-			//if (navigator.geolocation) {
+			if (navigator.geolocation) {
     		    	navigator.geolocation.getCurrentPosition(
     		    		function (pos) {
     		            	var locationlat = pos.coords.latitude;
@@ -77,7 +77,7 @@ self.addEventListener("message", function (event) {
 							//newCell.appendChild(newText);
 
 					});
-        	//}
+        	}
         	
         	count++;
 	 }
