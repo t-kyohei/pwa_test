@@ -4,7 +4,7 @@ if(window.PaymentRequest) {
 
     // google pay ÇÃê›íË
     const googlePaymentDataRequest = {
-      //environment: 'TEST',
+      environment: 'TEST',
       apiVersion: 2,
       apiVersionMinor: 0,
       merchantInfo: {
@@ -17,7 +17,7 @@ if(window.PaymentRequest) {
         type: 'CARD',
         parameters: {
           allowedAuthMethods: ["PAN_ONLY", "CRYPTOGRAM_3DS"],
-          allowedCardNetworks: ["AMEX", "DISCOVER", "INTERAC", "JCB", "MASTERCARD", "VISA"]
+          allowedCardNetworks: ["AMEX","JCB", "MASTERCARD", "VISA"]
         },
         tokenizationSpecification: {
           type: 'PAYMENT_GATEWAY',
