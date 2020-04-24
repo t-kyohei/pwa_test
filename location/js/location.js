@@ -203,7 +203,7 @@ openReq.onsuccess = function (event) {
     //位置情報の監視を終了
     document.getElementById('btnLocationClear').addEventListener('click', function () {
     
-    alert("位置情報の監視を終了します。+'count'+回取得しました。");
+    alert("位置情報の監視を終了します。"+'count'+"回取得しました。");
 			if (navigator.geolocation) {
     		    	watch_id = navigator.geolocation.clearWatch(watch_id);
       				count = 0;
