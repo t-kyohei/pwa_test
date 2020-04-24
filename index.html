@@ -39,6 +39,29 @@ window.addEventListener('load', function() {
 <div class="container">
 <a href="location" class="btn-square">位置情報取得画面</a>
 </div>
+
+
+<div class="container">
+<button class="btn-square" onclick="pay">支払い</button>
+</div>
+
+<script>
+function pay(){
+
+if(window.PaymentRequest) {
+    alert("Yes");
+    // Yes, we can use the API
+} else {
+    // No, fallback to checkout page
+    alert("No");
+}
+
+
+
+
+}
+
+</script>
 <!--<div class="container">
 <a href="push" class="btn-square">push</a>
 </div>
