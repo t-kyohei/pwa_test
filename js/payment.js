@@ -38,7 +38,13 @@ if(window.PaymentRequest) {
     
     const paymentMethods = [
     {supportedMethods: 'https://google.com/pay', data: googlePaymentDataRequest},
-    {supportedMethods: ['basic-card']}
+    {supportedMethods: ['basic-card'],
+    		data: {
+      			supportedNetworks: [
+        		'visa', 'mastercard', 'amex', 'diners', 'jcb'
+      			]
+    		}
+    }
 	];
 
 	const paymentDetails = {
