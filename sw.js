@@ -4,7 +4,8 @@ var urlsToCache = ['./index.html',
 					'./js/payment.js',
 					'./camera/',
 					'./location/index.html',
-					'./location/js/location.js'
+					'./location/js/location.js',
+					'./location/'
 
 					];
 
