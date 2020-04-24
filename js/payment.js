@@ -24,8 +24,8 @@ if(window.PaymentRequest) {
           // Check with your payment gateway on the parameters to pass.
           // @see {@link https://developers.google.com/pay/api/web/reference/request-objects#gateway}
           parameters: {
-            'gateway': 'example',
-            'gatewayMerchantId': 'exampleGatewayMerchantId'
+            gateway: 'example',
+            gatewayMerchantId: 'exampleGatewayMerchantId'
           }
         }
       }]
