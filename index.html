@@ -6,6 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="manifest" href="manifest.json">
         <link rel="stylesheet" type="text/css" href="btn.css" />
+        <script src="js/payment.js"></script>
+
 <script>
 window.addEventListener('load', function() {
   
@@ -46,23 +48,7 @@ window.addEventListener('load', function() {
 <button class="btn-square" onclick="pay()">支払い</button>
 </div>
 
-<script>
-var pay = function(){
 
-if(window.PaymentRequest) {
-    alert("Yes");
-    // Yes, we can use the API
-} else {
-    // No, fallback to checkout page
-    alert("No");
-}
-
-
-
-
-}
-
-</script>
 <!--<div class="container">
 <a href="push" class="btn-square">push</a>
 </div>
