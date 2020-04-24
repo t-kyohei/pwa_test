@@ -29,6 +29,16 @@ if(window.PaymentRequest) {
           }
         }
       }]
+      
+      
+      transactionInfo:{
+        countryCode: 'US',
+        currencyCode: 'JPY',
+        totalPriceStatus: 'FINAL',
+        // set to cart total
+        totalPrice: '1.00'
+      };
+      
     };
     
     
