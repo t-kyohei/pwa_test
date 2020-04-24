@@ -4,7 +4,7 @@ if(window.PaymentRequest) {
 
     // google pay ÇÃê›íË
     const googlePaymentDataRequest = {
-      environment: 'TEST',
+      //environment: 'TEST',
       apiVersion: 2,
       apiVersionMinor: 0,
       merchantInfo: {
