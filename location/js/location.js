@@ -155,5 +155,102 @@ openReq.onsuccess = function (event) {
     
     });
 
+   //監視ID
+    var watch_id;
+    var count = 0;
+    
+	//位置情報の監視を開始
+    document.getElementById('btnLocationWatch').addEventListener('click', function () {
+    
+    alert("位置情報の監視を開始します。");
+    		if (navigator.geolocation) {
+    		    	watch_id = navigator.geolocation.watchPosition(
+    		    		function (pos) {
+    		            	var locationlat = pos.coords.latitude;
+    		          		var locationlong = pos.coords.longitude;
+    		            	var date = new Date().toLocaleString();
+   
+							var trans = db.transaction(storeName, "readwrite");
+    				    	var store = trans.objectStore(storeName);
+    						store.put({lat: locationlat,long:locationlong,time:date});
+
+							var table = document.getElementById('locationTable');
+							var newRow = table.insertRow();
+
+							var newCell = newRow.insertCell();
+							var newText = document.createTextNode(locationlat);	
+							newCell.appendChild(newText);
+
+							newCell = newRow.insertCell();
+							newText = document.createTextNode(locationlong);
+							newCell.appendChild(newText);
+
+							newCell = newRow.insertCell();
+							newText = document.createTextNode(date);
+							newCell.appendChild(newText);
+	    				   	count++;
+	 
+					});
+        	}
+        	
+     
+	 
+    
+    });
+    
+    
+    
+    //位置情報の監視を終了
+    document.getElementById('btnLocationClear').addEventListener('click', function () {
+    
+    alert("位置情報の監視を終了します。+'count'+回取得しました。");
+			if (navigator.geolocation) {
+    		    	watch_id = navigator.geolocation.clearWatch(watch_id);
+      				count = 0;
+        	}
+        	
+     
+    
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
