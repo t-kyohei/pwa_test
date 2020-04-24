@@ -32,7 +32,28 @@ body{
   display: inline-block;
   padding: 0.5em 1em;
   text-decoration: none;
-  background: #dc143c;/*ボタン色*/
+  background: #008080;/*ボタン色*/
+  color: #FFF;
+  border-bottom: solid 4px #627295;
+  border-radius: 3px;
+}
+
+.btn-square4 {
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  background: #00FFFF;/*ボタン色*/
+  color: #FFF
+  border-bottom: solid 4px #627295;
+  border-radius: 3px;
+}
+
+
+.btn-square5 {
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  background: #FF0000;/*ボタン色*/
   color: #FFF;
   border-bottom: solid 4px #627295;
   border-radius: 3px;
