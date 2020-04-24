@@ -37,7 +37,7 @@ if(window.PaymentRequest) {
     // Yes, we can use the API
     
     const paymentMethods = [
-    {supportedMethods: 'https://google.com/pay', data: googlePaymentDataRequest},
+   // {supportedMethods: 'https://google.com/pay', data: googlePaymentDataRequest},
     {supportedMethods: ['basic-card'],
     		data: {
       			supportedNetworks: [
