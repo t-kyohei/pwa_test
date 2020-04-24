@@ -57,6 +57,22 @@ if(window.PaymentRequest) {
     }
 	};
 	
+	
+	const shippingOptions = [
+  {
+    id: "standard",
+    label: "Ground Shipping (2 days)",
+    amount: { currency: "JPY", value: "1" },
+    selected: true,
+  },
+  {
+    id: "drone",
+    label: " Drone Express (2 hours)",
+    amount: { currency: "JPY", value: "1" }
+  },
+  ];
+  Object.assign(paymentDetails, { shippingOptions });
+	
 	const options = {
         requestPayerEmail: true,
         requestPayerName: true,
