@@ -28,7 +28,7 @@ if(window.PaymentRequest) {
             gatewayMerchantId: 'exampleGatewayMerchantId'
           }
         }
-      }]
+      }],
       
       
       transactionInfo:{
@@ -37,7 +37,7 @@ if(window.PaymentRequest) {
         totalPriceStatus: 'FINAL',
         // set to cart total
         totalPrice: '1.00'
-      };
+      }
       
     };
     
