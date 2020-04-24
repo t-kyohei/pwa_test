@@ -43,11 +43,11 @@ window.addEventListener('load', function() {
 <br>
 
 <div class="container">
-<button class="btn-square" onclick="pay">支払い</button>
+<button class="btn-square" onclick="pay()">支払い</button>
 </div>
 
 <script>
-function pay(){
+var pay = function(){
 
 if(window.PaymentRequest) {
     alert("Yes");
