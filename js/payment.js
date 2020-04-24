@@ -56,10 +56,16 @@ if(window.PaymentRequest) {
         }
     }
 	};
+	
+	const options = {
+        requestPayerEmail: true,
+        requestPayerName: true
+      };
 
 	const paymentRequest = new PaymentRequest(
     paymentMethods,
-    paymentDetails
+    paymentDetails,
+    options
 	);
     
     
