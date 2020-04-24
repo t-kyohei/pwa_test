@@ -59,7 +59,9 @@ if(window.PaymentRequest) {
 	
 	const options = {
         requestPayerEmail: true,
-        requestPayerName: true
+        requestPayerName: true,
+        requestPayerPhone: true,
+        requestShipping: true
       };
 
 	const paymentRequest = new PaymentRequest(
