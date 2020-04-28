@@ -96,16 +96,10 @@ openReq.onsuccess = function (event) {
 				newCell = newRow.insertCell();
 				newText = document.createTextNode(date);
 				newCell.appendChild(newText);
-
-			});
-
-
-        }
-		//location.reload();
     });
     
     
-     document.getElementById('btnLocationDel').addEventListener('click', function () {
+     document.getElementById('btnWeatherDel').addEventListener('click', function () {
 
 		var db = event.target.result;
     	var trans = db.transaction(storeName, 'readwrite');
