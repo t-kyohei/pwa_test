@@ -28,6 +28,17 @@ request.onload = function () {
 };
 
 request.send();
+if ("Notification" in window) {
+    var permission = Notification.permission;
 
-var notification = new Notification("Hello, world!");
+    if (permission === "denied" || permission === "granted") {
+      return;
+    }
+
+    Notification
+      .requestPermission()
+      .then(function() {
+        var notification = new Notification("Hello, world!");
+      });
+  }
 }
