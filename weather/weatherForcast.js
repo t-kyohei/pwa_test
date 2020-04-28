@@ -19,9 +19,49 @@ request.responseType = 'json';
 request.onload = function () {
  var data = this.response;
  console.log(data);
- var temp = data["main"]["temp"]-273.15;
- var messageElement = $("<il><p class='weather'>都市：" + data["name"]+ "</p><p class='weather'>天気：" + data["weather"][0]["main"] + "</p><p class='weather'>気温：" + temp + "℃</p></il>");
+ var temp = data["main"]["temp"];
  //気温は-273.15する。
+ var diff = 273.15
+
+
+ /**
+ * Mathオブジェクトを拡張 
+ */
+var Math = Math || {};
+
+
+/**
+ * 与えられた値の小数点以下の桁数を返す 
+ * multiply, subtractで使用
+ * 
+ * 例)
+ *   10.12  => 2  
+ *   99.999 => 3
+ *   33.100 => 1
+ */
+Math._getDecimalLength = function(value) {
+    var list = (value + '').split('.'), result = 0;
+    if (list[1] !== undefined  & & list[1].length > 0) {
+        result = list[1].length;
+    }
+    return result;
+};
+
+/**
+ * 減算処理
+ *
+ * value1,value2を整数値に変換して減算
+ * その後、小数点の桁数分だけ小数点位置を戻す
+ */
+Math.subtract = function(value1, value2) {
+    var max = Math.max(Math._getDecimalLength(value1), Math._getDecimalLength(value2)),
+        k = Math.pow(10, max);
+    return (Math.multiply(value1, k) - Math.multiply(value2, k)) / k;
+};
+
+var tempja = Math.subtract(67, 66.9)
+ 
+var messageElement = $("<il><p class='weather'>都市：" + data["name"]+ "</p><p class='weather'>天気：" + data["weather"][0]["main"] + "</p><p class='weather'>気温：" + tempja + "℃</p></il>");
  
  //HTMLに取得したデータを追加する
  messageList.append(messageElement);
@@ -31,7 +71,7 @@ request.send();
 if ("Notification" in window) {
     var permission = Notification.permission;
 
-    if (permission === "denied" || permission === "granted") {
+    if (permission === "denied") {
       return;
     }
 
