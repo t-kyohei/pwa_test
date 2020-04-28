@@ -15,16 +15,19 @@
     
     <h1>天気予報</h1>
     
+ 
+    
+    <select id="city">
+	<option value="tokyo">東京</option>
+	<option value="oosaka">大阪</option>
+	<option value="tokyo">選択肢3</option>
+	</select>
+    <button class="btn-square" id="btnLocation" onclick="getWeather()">天気予報取得</button>
+       
     <ul id='messages'>
     </ul>
     
     
-    <select name="example">
-	<option value="tokyo">選択肢1</option>
-	<option value="tokyo">選択肢2</option>
-	<option value="tokyo">選択肢3</option>
-	</select>
-    <button class="btn-square" id="btnLocation" onclick="getWeather()">天気予報取得</button>
 
     <!-- 天気予報APIを参照するためのjavascript -->
     <script src="weatherForcast.js"></script>

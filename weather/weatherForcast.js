@@ -3,9 +3,12 @@ function getWeather(){
 //htmlのul要素（id = 'messages'）を呼び出し
 var messageList = $('#messages');
 
+//都市名を定義
+var city = document.getElementById("city").value;
+
 //openweathermap（天気予報API）に接続
 var request = new XMLHttpRequest();
-var cityName = "tokyo";
+var cityName = city;
 var owmApiKey = "39a3a05db42fccac432e0a490c3bb389";
 var owmURL = "https://api.openweathermap.org/data/2.5/weather?lang=ja&q="+ cityName +"&APPID="+ owmApiKey +"";
 
