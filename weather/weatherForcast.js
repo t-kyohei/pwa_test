@@ -143,9 +143,9 @@ Math.subtract = function(value1, value2) {
     return (Math.multiply(value1, k) - Math.multiply(value2, k)) / k;
 };
 
-tempja = Math.subtract(temp, diff);
-city = data["name"];
-main = data["weather"][0]["main"];
+var tempja = Math.subtract(temp, diff);
+var city = data["name"];
+var main = data["weather"][0]["main"];
  
  
  
