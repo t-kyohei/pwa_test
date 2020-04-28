@@ -5,7 +5,7 @@ var messageList = $('#messages');
 var request = new XMLHttpRequest();
 var cityName = "tokyo";
 var owmApiKey = "39a3a05db42fccac432e0a490c3bb389";
-var owmURL = "http://api.openweathermap.org/data/2.5/weather?q="+ cityName +"&APPID="+ owmApiKey +"";
+var owmURL = "https://api.openweathermap.org/data/2.5/weather?q="+ cityName +"&APPID="+ owmApiKey +"";
 
 request.open('GET', owmURL, true);
 //結果をjson型で受け取る
