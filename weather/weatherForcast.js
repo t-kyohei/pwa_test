@@ -71,7 +71,7 @@ openReq.onsuccess = function (event) {
    
    document.getElementById('btnWeather').addEventListener('click', function () {
   
-                getWeather();
+                getWeather().then(
                 var date = new Date().toLocaleString();
    
 				var trans = db.transaction(storeName, "readwrite");
@@ -96,6 +96,8 @@ openReq.onsuccess = function (event) {
 				newCell = newRow.insertCell();
 				newText = document.createTextNode(date);
 				newCell.appendChild(newText);
+				
+				);
     });
     
     
