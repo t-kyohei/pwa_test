@@ -1,21 +1,21 @@
-//html‚Ìul—v‘fiid = 'messages'j‚ğŒÄ‚Ño‚µ
+//htmlã®ulè¦ç´ ï¼ˆid = 'messages'ï¼‰ã‚’å‘¼ã³å‡ºã—
 var messageList = $('#messages');
 
-//openweathermapi“V‹C—\•ñAPIj‚ÉÚ‘±
+//openweathermapï¼ˆå¤©æ°—äºˆå ±APIï¼‰ã«æ¥ç¶š
 var request = new XMLHttpRequest();
 var cityName = "tokyo";
 var owmApiKey = "39a3a05db42fccac432e0a490c3bb389";
 var owmURL = "http://api.openweathermap.org/data/2.5/weather?q="+ cityName +"&APPID="+ owmApiKey +"";
 
 request.open('GET', owmURL, true);
-//Œ‹‰Ê‚ğjsonŒ^‚Åó‚¯æ‚é
+//çµæœã‚’jsonå‹ã§å—ã‘å–ã‚‹
 request.responseType = 'json';
 
 request.onload = function () {
  var data = this.response;
  console.log(data);
  var messageElement = $("<il><p class='weather'>" + data["weather"][0]["main"] + "</p></il>");
- //HTML‚Éæ“¾‚µ‚½ƒf[ƒ^‚ğ’Ç‰Á‚·‚é
+ //HTMLã«å–å¾—ã—ãŸãƒ‡ãƒ¼ã‚¿ã‚’è¿½åŠ ã™ã‚‹
  messageList.append(messageElement);
 };
 
