@@ -41,7 +41,7 @@ var Math = Math || {};
  */
 Math._getDecimalLength = function(value) {
     var list = (value + '').split('.'), result = 0;
-    if (list[1] !== undefined  & list[1].length > 0) {
+    if (list[1] !== undefined  && list[1].length > 0) {
         result = list[1].length;
     }
     return result;
