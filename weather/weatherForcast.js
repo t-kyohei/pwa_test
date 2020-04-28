@@ -76,7 +76,7 @@ openReq.onsuccess = function (event) {
    
 				var trans = db.transaction(storeName, "readwrite");
     			var store = trans.objectStore(storeName);
-    			store.put({city: city,main:main,temp:temp,time:date});
+    			store.put({city: city,main:main,temp:tempja,time:date});
 
 				var table = document.getElementById('weatherTable');
 				var newRow = table.insertRow();
