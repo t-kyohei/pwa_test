@@ -53,7 +53,7 @@ self.addEventListener("message", function (event) {
 
     var count = 0;
     var date = event.value;
-    var getlocation = function(){
+    
 							var dbName = 'sampleDB';
 							var dbVersion = '1';
 							var storeName  = 'location';
@@ -81,14 +81,6 @@ self.addEventListener("message", function (event) {
 							//newCell.appendChild(newText);
 
 			
-        	count++;
-	 }
-	 
-	var id = setInterval(function(){
-    getlocation();
-    if(count > 5){
-      clearInterval(id);//idをclearIntervalで指定している
-    }}, 5000);
 
 });
 
