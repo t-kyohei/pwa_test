@@ -14,12 +14,7 @@ request.responseType = 'json';
 request.onload = function () {
  var data = this.response;
  console.log(data);
- var messageElement = $("<il><p class='weather'>" + data["weather"][0]["main"] + "</p>
- 							<p class='weather'>" + data["main"]["temp"] + "</p>
- 							<p class='weather'>" + data["name"]+ "</p></il></il>
- 
- 
- 						");
+ var messageElement = $("<il><p class='weather'>" + data["weather"][0]["main"] + "</p><p class='weather'>" + data["main"]["temp"] + "</p><p class='weather'>" + data["name"]+ "</p></il></il>");
  //気温は-273.15する。
  
  //HTMLに取得したデータを追加する
