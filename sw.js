@@ -64,6 +64,18 @@ var openReq  = indexedDB.open(dbName, dbVersion);
 openReq.onerror = function (event) {
     console.log('接続失敗');
 }
+openReq.onupgradeneeded = function (event) {
+    var db = event.target.result;
+    const objectStore = db.createObjectStore(storeName, {keyPath : 'id',autoIncrement : true })
+    objectStore.createIndex("id", "id", { unique: true });
+    objectStore.createIndex("lat", "lat", { unique: false });
+    objectStore.createIndex("long", "long", { unique: false });
+    objectStore.createIndex("time", "time", { unique: false });
+
+
+
+    console.log('DB更新');
+}
 
 //DBのバージョン更新(DBの新規作成も含む)時のみ実行
 openReq.onsuccess = function (event) {
