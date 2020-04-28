@@ -45,6 +45,22 @@ Math._getDecimalLength = function(value) {
     }
     return result;
 };
+/**
+ * 乗算処理
+ *
+ * value1, value2から小数点を取り除き、整数値のみで乗算を行う。 
+ * その後、小数点の桁数Nの数だけ10^Nで除算する
+ */
+Math.multiply = function(value1, value2) {
+    var intValue1 = +(value1 + '').replace('.', ''),
+        intValue2 = +(value2 + '').replace('.', ''),
+        decimalLength = Math._getDecimalLength(value1) + Math._getDecimalLength(value2),
+        result;
+
+    result = (intValue1 * intValue2) / Math.pow(10, decimalLength);
+
+    return result;
+};
 
 /**
  * 減算処理
