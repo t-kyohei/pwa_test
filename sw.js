@@ -55,11 +55,29 @@ self.addEventListener("message", function (event) {
     var date = event.value;
     
 							var dbName = 'sampleDB';
-							var dbVersion = '1';
-							var storeName  = 'location';
-							var count = 0;
-							//　DB名を指定して接続
-							var db  = indexedDB.open(dbName, dbVersion);
+var dbVersion = '1';
+var storeName  = 'location';
+var count = 0;
+//　DB名を指定して接続
+var openReq  = indexedDB.open(dbName, dbVersion);
+// 接続に失敗
+openReq.onerror = function (event) {
+    console.log('接続失敗');
+}
+
+//DBのバージョン更新(DBの新規作成も含む)時のみ実行
+openReq.onupgradeneeded = function (event) {
+    var db = event.target.result;
+    const objectStore = db.createObjectStore(storeName, {keyPath : 'id',autoIncrement : true })
+    objectStore.createIndex("id", "id", { unique: true });
+    objectStore.createIndex("lat", "lat", { unique: false });
+    objectStore.createIndex("long", "long", { unique: false });
+    objectStore.createIndex("time", "time", { unique: false });
+
+
+
+    console.log('DB更新');
+
 
 							var trans = db.transaction(storeName, "readwrite");
     				    	var store = trans.objectStore(storeName);
@@ -80,7 +98,7 @@ self.addEventListener("message", function (event) {
 							//newText = document.createTextNode(date);
 							//newCell.appendChild(newText);
 
-			
+}			
 
 });
 
