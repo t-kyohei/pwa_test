@@ -149,8 +149,6 @@ var main = data["weather"][0]["main"];
  
  
 
-
-request.send();
 if ("Notification" in window) {
     var permission = Notification.permission;
 
@@ -195,6 +193,7 @@ if ("Notification" in window) {
 				newCell.appendChild(newText);
 				
 	};
+	request.send();
     });
     
     
