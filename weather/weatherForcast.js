@@ -28,4 +28,6 @@ request.onload = function () {
 };
 
 request.send();
+
+var notification = new Notification("Hello, world!");
 }
