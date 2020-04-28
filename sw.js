@@ -80,5 +80,6 @@ openReq.onupgradeneeded = function (event) {
 
 }			
 
+}
 });
 
