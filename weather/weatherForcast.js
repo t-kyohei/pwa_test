@@ -121,11 +121,10 @@ function getWeather(){
 
 
 //都市名を定義
-var city = document.getElementById("city").value;
+var cityName = document.getElementById("city").value;
 
 //openweathermap（天気予報API）に接続
 var request = new XMLHttpRequest();
-var cityName = city;
 var owmApiKey = "39a3a05db42fccac432e0a490c3bb389";
 var owmURL = "https://api.openweathermap.org/data/2.5/weather?lang=ja&q="+ cityName +"&APPID="+ owmApiKey +"";
 
@@ -191,9 +190,9 @@ Math.subtract = function(value1, value2) {
     return (Math.multiply(value1, k) - Math.multiply(value2, k)) / k;
 };
 
-var tempja = Math.subtract(temp, diff);
-var city = data["name"];
-var main = data["weather"][0]["main"];
+tempja = Math.subtract(temp, diff);
+city = data["name"];
+main = data["weather"][0]["main"];
  
  
  
