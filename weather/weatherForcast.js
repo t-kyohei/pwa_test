@@ -90,7 +90,7 @@ request.onload = function () {
  console.log(data);
  var temp = data["main"]["temp"];
  //気温は-273.15する。
- var diff = 273.15
+ var diff = 273.15;
 
 
  /**
@@ -148,8 +148,7 @@ var city = data["name"];
 var main = data["weather"][0]["main"];
  
  
- 
-};
+
 
 request.send();
 if ("Notification" in window) {
