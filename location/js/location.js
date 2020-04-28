@@ -1,5 +1,5 @@
 var dbName = 'sampleDB';
-var dbVersion = '2';
+var dbVersion = '1';
 var storeName  = 'location';
 var count = 0;
 //　DB名を指定して接続

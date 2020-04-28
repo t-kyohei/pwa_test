@@ -1,5 +1,5 @@
 var dbName = 'sampleDB';
-var dbVersion = '1';
+var dbVersion = '2';
 var storeName  = 'weather';
 var count = 0;
 //天気関連
