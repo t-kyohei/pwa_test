@@ -54,7 +54,13 @@ self.addEventListener("message", function (event) {
     var count = 0;
     var date = event.value;
     var getlocation = function(){
-		
+							var dbName = 'sampleDB';
+							var dbVersion = '1';
+							var storeName  = 'location';
+							var count = 0;
+							//　DB名を指定して接続
+							var db  = indexedDB.open(dbName, dbVersion);
+
 							var trans = db.transaction(storeName, "readwrite");
     				    	var store = trans.objectStore(storeName);
     						store.put({lat: locationlat,long:locationlong,time:date});
