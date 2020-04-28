@@ -1,3 +1,5 @@
+function getWeather(){
+
 //htmlのul要素（id = 'messages'）を呼び出し
 var messageList = $('#messages');
 
@@ -22,3 +24,4 @@ request.onload = function () {
 };
 
 request.send();
+}
