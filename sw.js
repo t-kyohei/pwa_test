@@ -67,36 +67,16 @@ openReq.onerror = function (event) {
 
 //DBのバージョン更新(DBの新規作成も含む)時のみ実行
 openReq.onupgradeneeded = function (event) {
-    var db = event.target.result;
-    const objectStore = db.createObjectStore(storeName, {keyPath : 'id',autoIncrement : true })
-    objectStore.createIndex("id", "id", { unique: true });
-    objectStore.createIndex("lat", "lat", { unique: false });
-    objectStore.createIndex("long", "long", { unique: false });
-    objectStore.createIndex("time", "time", { unique: false });
-
-
-
-    console.log('DB更新');
-
+    						var db = event.target.result;
 
 							var trans = db.transaction(storeName, "readwrite");
     				    	var store = trans.objectStore(storeName);
-    						store.put({lat: locationlat,long:locationlong,time:date});
-
-							//var table = document.getElementById('locationTable');
-							//var newRow = table.insertRow();
-
-							//var newCell = newRow.insertCell();
-							//var newText = document.createTextNode(locationlat);	
-							//newCell.appendChild(newText);
-
-							//newCell = newRow.insertCell();
-							//newText = document.createTextNode(locationlong);
-							//newCell.appendChild(newText);
-
-							//newCell = newRow.insertCell();
-							//newText = document.createTextNode(date);
-							//newCell.appendChild(newText);
+    						store.openCursor().onsuccess = function(event) {
+  							const row = event.target.result;
+  if (row) {
+    console.log(row.value);
+    row.continue();
+  }
 
 }			
 
