@@ -74,7 +74,7 @@ Math.subtract = function(value1, value2) {
     return (Math.multiply(value1, k) - Math.multiply(value2, k)) / k;
 };
 
-var tempja = Math.subtract(67, 66.9)
+var tempja = Math.subtract(temp, diff)
  
 var messageElement = $("<il><p class='weather'>都市：" + data["name"]+ "</p><p class='weather'>天気：" + data["weather"][0]["main"] + "</p><p class='weather'>気温：" + tempja + "℃</p></il>");
  
@@ -90,10 +90,10 @@ if ("Notification" in window) {
       return;
     }
 
-    Notification
-      .requestPermission()
-      .then(function() {
-        var notification = new Notification("Hello, world!");
-      });
+//    Notification
+//      .requestPermission()
+//      .then(function() {
+//        var notification = new Notification("Hello, world!");
+//    });
   }
 }
