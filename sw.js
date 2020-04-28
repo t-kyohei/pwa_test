@@ -54,13 +54,7 @@ self.addEventListener("message", function (event) {
     var count = 0;
     var date = event.value;
     var getlocation = function(){
-			if (navigator.geolocation) {
-    		    	navigator.geolocation.getCurrentPosition(
-    		    		function (pos) {
-    		            	var locationlat = pos.coords.latitude;
-    		          		var locationlong = pos.coords.longitude;
-    		            	var date = new Date().toLocaleString();
-   
+		
 							var trans = db.transaction(storeName, "readwrite");
     				    	var store = trans.objectStore(storeName);
     						store.put({lat: locationlat,long:locationlong,time:date});
@@ -80,9 +74,7 @@ self.addEventListener("message", function (event) {
 							//newText = document.createTextNode(date);
 							//newCell.appendChild(newText);
 
-					});
-        	}
-        	
+			
         	count++;
 	 }
 	 
