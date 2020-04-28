@@ -66,7 +66,7 @@ openReq.onerror = function (event) {
 }
 
 //DBのバージョン更新(DBの新規作成も含む)時のみ実行
-openReq.onupgradeneeded = function (event) {
+openReq.onsuccess = function (event) {
     						var db = event.target.result;
 
 							var trans = db.transaction(storeName, "readwrite");
