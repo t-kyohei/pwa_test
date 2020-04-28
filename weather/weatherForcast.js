@@ -1,7 +1,130 @@
+var dbName = 'sampleDB';
+var dbVersion = '1';
+var storeName  = 'weather';
+var count = 0;
+//天気関連
+var city
+var tempja
+var main
+
+//　DB名を指定して接続
+var openReq  = indexedDB.open(dbName, dbVersion);
+// 接続に失敗
+openReq.onerror = function (event) {
+    console.log('接続失敗');
+}
+
+//DBのバージョン更新(DBの新規作成も含む)時のみ実行
+openReq.onupgradeneeded = function (event) {
+    var db = event.target.result;
+    const objectStore = db.createObjectStore(storeName, {keyPath : 'id',autoIncrement : true })
+    objectStore.createIndex("id", "id", { unique: true });
+    objectStore.createIndex("city", "city", { unique: false });
+    objectStore.createIndex("main", "main", { unique: false });
+    objectStore.createIndex("temp", "temp", { unique: false });
+    objectStore.createIndex("time", "time", { unique: false });
+
+
+
+
+    console.log('DB更新');
+}
+
+//onupgradeneededの後に実行。更新がない場合はこれだけ実行
+openReq.onsuccess = function (event) {
+    var db = event.target.result;
+    var trans = db.transaction(storeName, 'readonly');
+    var store = trans.objectStore(storeName);
+
+    var weather = [];
+
+    store.openCursor().onsuccess = function(event) {
+    var cursor = event.target.result;
+      if (cursor) {
+	var table = document.getElementById('weatherTable');
+	var newRow = table.insertRow();
+
+	var newCell = newRow.insertCell();
+	var newText = document.createTextNode(cursor.value.city);	
+	newCell.appendChild(newText);
+
+	newCell = newRow.insertCell();
+	newText = document.createTextNode(cursor.value.main);
+	newCell.appendChild(newText);
+
+	newCell = newRow.insertCell();
+	newText = document.createTextNode(cursor.value.temp);
+	newCell.appendChild(newText);
+
+	newCell = newRow.insertCell();
+	newText = document.createTextNode(cursor.value.time);
+	newCell.appendChild(newText);
+
+
+    	cursor.continue();
+	
+	}
+    else {
+   // alert("Got all locations: " + locations);
+    } 
+   };
+   
+   document.getElementById('btnWeather').addEventListener('click', function () {
+  
+                getWeather();
+                var date = new Date().toLocaleString();
+   
+				var trans = db.transaction(storeName, "readwrite");
+    			var store = trans.objectStore(storeName);
+    			store.put({city: city,main:main,temp:temp,time:date});
+
+				var table = document.getElementById('weatherTable');
+				var newRow = table.insertRow();
+
+				var newCell = newRow.insertCell();
+				var newText = document.createTextNode(city);	
+				newCell.appendChild(newText);
+
+				newCell = newRow.insertCell();
+				newText = document.createTextNode(main);
+				newCell.appendChild(newText);
+
+				newCell = newRow.insertCell();
+				newText = document.createTextNode(tempja);
+				newCell.appendChild(newText);
+
+				newCell = newRow.insertCell();
+				newText = document.createTextNode(date);
+				newCell.appendChild(newText);
+
+			});
+
+
+        }
+		//location.reload();
+    });
+    
+    
+     document.getElementById('btnLocationDel').addEventListener('click', function () {
+
+		var db = event.target.result;
+    	var trans = db.transaction(storeName, 'readwrite');
+    	var store = trans.objectStore(storeName);
+    
+   	 	var request = store.clear();
+		request.onsuccess = function (event) {
+		// 全件削除後の処理
+		alert("位置情報を全て削除しました。");
+		location.reload();
+		}
+		
+    });
+
+   
+}
+
 function getWeather(){
 
-//htmlのul要素（id = 'messages'）を呼び出し
-var messageList = $('#messages');
 
 //都市名を定義
 var city = document.getElementById("city").value;
@@ -74,12 +197,12 @@ Math.subtract = function(value1, value2) {
     return (Math.multiply(value1, k) - Math.multiply(value2, k)) / k;
 };
 
-var tempja = Math.subtract(temp, diff)
+var tempja = Math.subtract(temp, diff);
+var city = data["name"];
+var main = data["weather"][0]["main"];
  
-var messageElement = $("<il><p class='weather'>都市：" + data["name"]+ "</p><p class='weather'>天気：" + data["weather"][0]["main"] + "</p><p class='weather'>気温：" + tempja + "℃</p></il>");
  
- //HTMLに取得したデータを追加する
- messageList.append(messageElement);
+ 
 };
 
 request.send();

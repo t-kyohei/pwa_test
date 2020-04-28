@@ -19,7 +19,6 @@ openReq.onupgradeneeded = function (event) {
     objectStore.createIndex("time", "time", { unique: false });
 
 
-
     console.log('DB更新');
 }
 
@@ -29,7 +28,7 @@ openReq.onsuccess = function (event) {
     var trans = db.transaction(storeName, 'readonly');
     var store = trans.objectStore(storeName);
 
-    var locations = [];
+    var weather = [];
 
     store.openCursor().onsuccess = function(event) {
     var cursor = event.target.result;

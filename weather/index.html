@@ -22,10 +22,22 @@
 	<option value="osaka">大阪</option>
 	<option value="tokyo">選択肢3</option>
 	</select>
-    <button class="btn-square" id="btnLocation" onclick="getWeather()">天気予報取得</button>
+    <button class="btn-square" id="btnWeather" >天気予報取得</button>
+    <button class="btn-square" id="btnWeatherDel" >天気予報削除</button>
        
-    <ul id='messages'>
-    </ul>
+	<table border="1" id="weatherTable">
+    <tr>
+      <th>都市</th>
+      <th>天気</th>
+      <th>気温</th>
+      <th>時刻</th>
+    </tr>
+    <!--  <tr id="location">
+      <td class="lat"></td>
+      <td class="long"></td>
+      <td class="time"></td>
+   </tr>-->
+   </table>
     
     
 
