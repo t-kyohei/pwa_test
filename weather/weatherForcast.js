@@ -27,7 +27,6 @@ request.onload = function () {
  /**
  * Mathオブジェクトを拡張 
  */
-var Math = Math || {};
 
 
 /**
