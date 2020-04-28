@@ -194,7 +194,7 @@ if ("Notification" in window) {
 				newText = document.createTextNode(date);
 				newCell.appendChild(newText);
 				
-				
+	};
     });
     
     
