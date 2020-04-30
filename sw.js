@@ -113,18 +113,17 @@ self.addEventListener('sync', function(evt) {
         return response.json();
     })
     .then(function(myJson) {
+         天気予報情報取得
          console.log(myJson);          
-         console.log(myJson.name);          
-         console.log(myJson.weather[0].main);  
-         var main = myJson.weather[0].main;        
-         
-    
-    
-    
-    
-    
+         var main = myJson.weather[0].main;
+         var description =myJson.weather[0].description;
+         var cityName = myJson.name;
+         var temp = myJson.main.temp;
+         var diff = 273.15;
+
+
     var title = "天気予報情報を取得しました。";
-    var body = city+"の天気は"+main+"です。";
+    var body = cityName+"の天気は"+main+"("+description+")です。";
 
     evt.waitUntil(
         self.registration.showNotification(title, {
