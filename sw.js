@@ -116,12 +116,12 @@ self.addEventListener('sync', function(evt) {
 
 
    //都市名を定義
-var cityName = document.getElementById("city").value;
+//var cityName = document.getElementById("city").value;
 
 //openweathermap（天気予報API）に接続
 var request = new XMLHttpRequest();
 var owmApiKey = "39a3a05db42fccac432e0a490c3bb389";
-var owmURL = "https://api.openweathermap.org/data/2.5/weather?lang=ja&q="+ cityName +"&APPID="+ owmApiKey +"";
+var owmURL = "https://api.openweathermap.org/data/2.5/weather?lang=ja&q=tokyo&APPID="+ owmApiKey +"";
 
 request.open('GET', owmURL, true);
 //結果をjson型で受け取る
@@ -214,7 +214,7 @@ if ("Notification" in window) {
 				var trans = db.transaction(storeName, "readwrite");
     			var store = trans.objectStore(storeName);
     			store.put({city: city,main:main,temp:tempja,time:date});
-
+/*
 				var table = document.getElementById('weatherTable');
 				var newRow = table.insertRow();
 
@@ -233,7 +233,7 @@ if ("Notification" in window) {
 				newCell = newRow.insertCell();
 				newText = document.createTextNode(date);
 				newCell.appendChild(newText);
-				
+*/				
 	};
 	request.send();
 	
