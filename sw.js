@@ -115,15 +115,111 @@ self.addEventListener('sync', function(evt) {
     .then(function(myJson) {
          //天気予報情報取得
          console.log(myJson);          
-         var main = myJson.weather[0].main;
+         var main = myJson.weather[0].main+"("+myJson.weather[0].description+")";
          var description =myJson.weather[0].description;
          var cityName = myJson.name;
          var temp = myJson.main.temp;
          var diff = 273.15;
+         
+         
+         
+ /**
+ * 気温計算処理
+ */
 
+
+/**
+ * 与えられた値の小数点以下の桁数を返す 
+ * multiply, subtractで使用
+ * 
+ * 例)
+ *   10.12  => 2  
+ *   99.999 => 3
+ *   33.100 => 1
+ */
+Math._getDecimalLength = function(value) {
+    var list = (value + '').split('.'), result = 0;
+    if (list[1] !== undefined  && list[1].length > 0) {
+        result = list[1].length;
+    }
+    return result;
+};
+/**
+ * 乗算処理
+ *
+ * value1, value2から小数点を取り除き、整数値のみで乗算を行う。 
+ * その後、小数点の桁数Nの数だけ10^Nで除算する
+ */
+Math.multiply = function(value1, value2) {
+    var intValue1 = +(value1 + '').replace('.', ''),
+        intValue2 = +(value2 + '').replace('.', ''),
+        decimalLength = Math._getDecimalLength(value1) + Math._getDecimalLength(value2),
+        result;
+
+    result = (intValue1 * intValue2) / Math.pow(10, decimalLength);
+
+    return result;
+};
+
+/**
+ * 減算処理
+ *
+ * value1,value2を整数値に変換して減算
+ * その後、小数点の桁数分だけ小数点位置を戻す
+ */
+Math.subtract = function(value1, value2) {
+    var max = Math.max(Math._getDecimalLength(value1), Math._getDecimalLength(value2)),
+        k = Math.pow(10, max);
+    return (Math.multiply(value1, k) - Math.multiply(value2, k)) / k;
+};
+
+var tempja = Math.subtract(temp, diff);
+         
+/*
+*取得した天気予報情報をローカルに保存
+*
+*/
+var dbName = 'sampleDB';
+var dbVersion = '2';
+var storeName  = 'weather';
+var count = 0;
+
+//DB名を指定して接続
+var openReq  = indexedDB.open(dbName, dbVersion);
+// 接続に失敗
+openReq.onerror = function (event) {
+    console.log('接続失敗');
+}
+
+//DBのバージョン更新(DBの新規作成も含む)時のみ実行
+openReq.onupgradeneeded = function (event) {
+    var db = event.target.result;
+    const objectStore = db.createObjectStore(storeName, {keyPath : 'id',autoIncrement : true })
+    objectStore.createIndex("id", "id", { unique: true });
+    objectStore.createIndex("city", "city", { unique: false });
+    objectStore.createIndex("main", "main", { unique: false });
+    objectStore.createIndex("temp", "temp", { unique: false });
+    objectStore.createIndex("time", "time", { unique: false });
+    console.log('DB更新');
+}
+
+//onupgradeneededの後に実行。更新がない場合はこれだけ実行
+openReq.onsuccess = function (event) {
+				var date = new Date().toLocaleString();
+         		var db = event.target.result;
+				var trans = db.transaction(storeName, "readwrite");
+    			var store = trans.objectStore(storeName);
+    			store.put({city: city,main:main,temp:tempja,time:date});
+}
+
+
+/*
+*天気取得を通知
+*
+*/
 
     var title = "天気予報情報を取得しました。";
-    var body = cityName+"の天気は"+main+"("+description+")です。";
+    var body = cityName+"の天気は"+main+"です。";
 
     evt.waitUntil(
         self.registration.showNotification(title, {
