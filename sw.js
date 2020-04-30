@@ -97,12 +97,28 @@ openReq.onsuccess = function (event) {
 
 
 self.addEventListener('sync', function(evt) {
+
+if ("Notification" in window) {
+    var permission = Notification.permission;
+
+    if (permission === "denied") {
+      return;
+    }
+
+//    Notification
+//      .requestPermission()
+//      .then(function() {
+//        var notification = new Notification("Hello, world!");
+//    });
+  }
+ /*
   if (evt.tag.startsWith('send-msg:')) {
     var id = parseInt(evt.tag.substr(9))
     if (isNaN(id))
       return;
     evt.waitUntil(sendAndDeleteMessage(id));
   }
+  */
 });
 
 
