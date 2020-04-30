@@ -107,14 +107,13 @@ self.addEventListener('sync', function(evt) {
 
 
 
-/*
 
 /**
 *
 *天気予報取得処理
 **/
 
-
+/*
    //都市名を定義
 //var cityName = document.getElementById("city").value;
 
@@ -134,7 +133,7 @@ var owmURL = "https://api.openweathermap.org/data/2.5/weather?lang=ja&q=tokyo&AP
  //気温は-273.15する。
  var diff = 273.15;
 
-
+*/
  /**
  * Mathオブジェクトを拡張 
  */
@@ -149,6 +148,7 @@ var owmURL = "https://api.openweathermap.org/data/2.5/weather?lang=ja&q=tokyo&AP
  *   99.999 => 3
  *   33.100 => 1
  */
+ /*
 Math._getDecimalLength = function(value) {
     var list = (value + '').split('.'), result = 0;
     if (list[1] !== undefined  && list[1].length > 0) {
@@ -162,6 +162,7 @@ Math._getDecimalLength = function(value) {
  * value1, value2から小数点を取り除き、整数値のみで乗算を行う。 
  * その後、小数点の桁数Nの数だけ10^Nで除算する
  */
+ /*
 Math.multiply = function(value1, value2) {
     var intValue1 = +(value1 + '').replace('.', ''),
         intValue2 = +(value2 + '').replace('.', ''),
@@ -179,6 +180,7 @@ Math.multiply = function(value1, value2) {
  * value1,value2を整数値に変換して減算
  * その後、小数点の桁数分だけ小数点位置を戻す
  */
+ /*
 Math.subtract = function(value1, value2) {
     var max = Math.max(Math._getDecimalLength(value1), Math._getDecimalLength(value2)),
         k = Math.pow(10, max);
@@ -209,12 +211,13 @@ if ("Notification" in window) {
   *取得した天気予報情報を登録
   *
   **/
+  /*
                 var date = new Date().toLocaleString();
    
 				var trans = db.transaction(storeName, "readwrite");
     			var store = trans.objectStore(storeName);
     			store.put({city: city,main:main,temp:tempja,time:date});
-/*
+
 				var table = document.getElementById('weatherTable');
 				var newRow = table.insertRow();
 
@@ -233,7 +236,7 @@ if ("Notification" in window) {
 				newCell = newRow.insertCell();
 				newText = document.createTextNode(date);
 				newCell.appendChild(newText);
-*/				
+			
 	};
 	//request.send();
 	
