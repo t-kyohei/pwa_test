@@ -99,13 +99,28 @@ openReq.onsuccess = function (event) {
 self.addEventListener('sync', function(evt) {
 
   if (evt.tag.startsWith('send-msg:')) {
-    var city = parseInt(evt.tag.substr(9))
+    var city = evt.tag.substr(9);
     //if (isNaN(id))
     //  return;
     //evt.waitUntil(sendAndDeleteMessage(id));
-  }
   
-    var title = "プッシュ通知です！";
+    var owmApiKey = "39a3a05db42fccac432e0a490c3bb389";
+	var owmURL = "https://api.openweathermap.org/data/2.5/weather?lang=ja&q="+ city +"&APPID="+ owmApiKey +";
+
+    
+    fetch(owmURL)
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(myJson) {
+         console.log(myJson);                                                      
+        }
+    });
+    
+    
+    
+    
+    var title = "天気予報情報を取得しました。";
     var body = city;
 
     evt.waitUntil(
@@ -116,6 +131,8 @@ self.addEventListener('sync', function(evt) {
         })
     );
   
+  
+  }
 
 });
 
