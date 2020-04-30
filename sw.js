@@ -221,13 +221,13 @@ openReq.onsuccess = function (event) {
     var title = "天気予報情報を取得しました。";
     var body = cityName+"の天気は"+main+"です。";
 
-    evt.waitUntil(
+    
         self.registration.showNotification(title, {
             body: body,
             icon: '',
             tag: 'push-notification-tag'
         })
-    );
+    ;
   
    });
   }
