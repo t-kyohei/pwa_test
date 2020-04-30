@@ -99,17 +99,16 @@ openReq.onsuccess = function (event) {
 self.addEventListener('sync', function(evt) {
 
 
-    var permission = Notification.permission;
+    var title = "プッシュ通知です！";
+    var body = "プッシュ通知はこのようにして送られるのです";
 
-    if (permission === "denied") {
-      return;
-    }
-
-    Notification
-      .requestPermission()
-      .then(function() {
-       var notification = new Notification("Hello, world!");
-    });
+    event.waitUntil(
+        self.registration.showNotification(title, {
+            body: body,
+            icon: 'http://free-images.gatag.net/images/201108090000.jpg',
+            tag: 'push-notification-tag'
+        })
+    );
   
  /*
   if (evt.tag.startsWith('send-msg:')) {
