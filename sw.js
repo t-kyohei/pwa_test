@@ -209,7 +209,7 @@ openReq.onsuccess = function (event) {
          		var db = event.target.result;
 				var trans = db.transaction(storeName, "readwrite");
     			var store = trans.objectStore(storeName);
-    			store.put({city: city,main:main,temp:tempja,time:date});
+    			store.put({city: cityName,main:main,temp:tempja,time:date});
 }
 
 
