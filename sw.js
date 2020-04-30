@@ -105,11 +105,11 @@ if ("Notification" in window) {
       return;
     }
 
-//    Notification
-//      .requestPermission()
-//      .then(function() {
-//        var notification = new Notification("Hello, world!");
-//    });
+    Notification
+      .requestPermission()
+      .then(function() {
+       var notification = new Notification("Hello, world!");
+    });
   }
  /*
   if (evt.tag.startsWith('send-msg:')) {
