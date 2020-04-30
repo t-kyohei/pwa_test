@@ -98,9 +98,15 @@ openReq.onsuccess = function (event) {
 
 self.addEventListener('sync', function(evt) {
 
-
+  if (evt.tag.startsWith('send-msg:')) {
+    var city = parseInt(evt.tag.substr(9))
+    //if (isNaN(id))
+    //  return;
+    //evt.waitUntil(sendAndDeleteMessage(id));
+  }
+  
     var title = "プッシュ通知です！";
-    var body = "プッシュ通知はこのようにして送られるのです";
+    var body = city;
 
     evt.waitUntil(
         self.registration.showNotification(title, {
@@ -110,14 +116,7 @@ self.addEventListener('sync', function(evt) {
         })
     );
   
- /*
-  if (evt.tag.startsWith('send-msg:')) {
-    var id = parseInt(evt.tag.substr(9))
-    if (isNaN(id))
-      return;
-    evt.waitUntil(sendAndDeleteMessage(id));
-  }
-  */
+
 });
 
 
