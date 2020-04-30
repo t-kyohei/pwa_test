@@ -107,7 +107,7 @@ self.addEventListener('sync', function(evt) {
 
 
 
-
+/*
 
 /**
 *
@@ -119,15 +119,15 @@ self.addEventListener('sync', function(evt) {
 //var cityName = document.getElementById("city").value;
 
 //openweathermap（天気予報API）に接続
-var request = new XMLHttpRequest();
+//var request = new XMLHttpRequest();
 var owmApiKey = "39a3a05db42fccac432e0a490c3bb389";
 var owmURL = "https://api.openweathermap.org/data/2.5/weather?lang=ja&q=tokyo&APPID="+ owmApiKey +"";
 
-request.open('GET', owmURL, true);
+//request.open('GET', owmURL, true);
 //結果をjson型で受け取る
-request.responseType = 'json';
+//request.responseType = 'json';
 
-request.onload = function () {
+//request.onload = function () {
  var data = this.response;
  console.log(data);
  var temp = data["main"]["temp"];
@@ -235,10 +235,10 @@ if ("Notification" in window) {
 				newCell.appendChild(newText);
 */				
 	};
-	request.send();
+	//request.send();
 	
 	
 
-
+*/
 
 
