@@ -66,6 +66,18 @@ openReq.onsuccess = function (event) {
    };
    
    document.getElementById('btnWeather').addEventListener('click', function () {
+ 
+ 
+   //バックグラウンド同期確認
+   if (navigator.serviceWorker && window.SyncManager) {
+  //this._sendMassageWithSync(data)
+   // .catch((function() {
+    //  this._sendMessage(data);
+    alert("Yes");
+    //}).bind(this));
+} else {
+  //this._sendMessage(data);
+}
 
 /**
 *
