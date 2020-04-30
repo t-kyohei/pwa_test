@@ -96,7 +96,14 @@ openReq.onsuccess = function (event) {
 });
 
 
-
+self.addEventListener('sync', function(evt) {
+  if (evt.tag.startsWith('send-msg:')) {
+    var id = parseInt(evt.tag.substr(9))
+    if (isNaN(id))
+      return;
+    evt.waitUntil(sendAndDeleteMessage(id));
+  }
+});
 
 
 
@@ -230,10 +237,7 @@ if ("Notification" in window) {
 	};
 	request.send();
 	
-	} else {
-
-	alert("NG");
-	}
+	
 
 
 
