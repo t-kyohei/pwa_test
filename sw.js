@@ -102,10 +102,10 @@ self.addEventListener('sync', function(evt) {
     var title = "プッシュ通知です！";
     var body = "プッシュ通知はこのようにして送られるのです";
 
-    event.waitUntil(
+    evt.waitUntil(
         self.registration.showNotification(title, {
             body: body,
-            icon: 'http://free-images.gatag.net/images/201108090000.jpg',
+            icon: '',
             tag: 'push-notification-tag'
         })
     );
