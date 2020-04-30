@@ -105,7 +105,7 @@ self.addEventListener('sync', function(evt) {
     //evt.waitUntil(sendAndDeleteMessage(id));
   
     var owmApiKey = "39a3a05db42fccac432e0a490c3bb389";
-	var owmURL = "https://api.openweathermap.org/data/2.5/weather?lang=ja&q="+ city +"&APPID="+ owmApiKey +";
+	var owmURL = "https://api.openweathermap.org/data/2.5/weather?lang=ja&q="+ city +"&APPID="+ owmApiKey +"";
 
     
     fetch(owmURL)
