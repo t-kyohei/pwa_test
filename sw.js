@@ -113,7 +113,7 @@ self.addEventListener('sync', function(evt) {
         return response.json();
     })
     .then(function(myJson) {
-         天気予報情報取得
+         //天気予報情報取得
          console.log(myJson);          
          var main = myJson.weather[0].main;
          var description =myJson.weather[0].description;
