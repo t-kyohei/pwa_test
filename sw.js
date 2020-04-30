@@ -97,6 +97,15 @@ openReq.onsuccess = function (event) {
 
 
 self.addEventListener('sync', function(evt) {
+if (navigator.geolocation) {
+        	navigator.geolocation.getCurrentPosition(
+        		function (pos) {
+                		var locationlat = pos.coords.latitude;
+              			var locationlong = pos.coords.longitude;
+     
+     });
+     
+     }
 
   if (evt.tag.startsWith('send-msg:')) {
     var city = evt.tag.substr(9);
