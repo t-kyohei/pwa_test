@@ -106,7 +106,7 @@ self.addEventListener('sync', function(evt) {
   
     var owmApiKey = "39a3a05db42fccac432e0a490c3bb389";
 	var owmURL = "https://api.openweathermap.org/data/2.5/weather?lang=ja&q="+ city +"&APPID="+ owmApiKey +"";
-
+    var main 
     
     fetch(owmURL)
     .then(function(response) {
@@ -115,7 +115,8 @@ self.addEventListener('sync', function(evt) {
     .then(function(myJson) {
          console.log(myJson);          
          console.log(myJson.name);          
-         console.log(myJson.weather[0].main);          
+         console.log(myJson.weather[0].main);  
+         main = myJson.weather[0].main;        
          
     });
     
@@ -123,7 +124,7 @@ self.addEventListener('sync', function(evt) {
     
     
     var title = "天気予報情報を取得しました。";
-    var body = city;
+    var body = city+"の天気は"+main+"です。";
 
     evt.waitUntil(
         self.registration.showNotification(title, {
