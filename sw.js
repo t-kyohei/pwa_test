@@ -114,7 +114,7 @@ self.addEventListener('sync', function(evt) {
     })
     .then(function(myJson) {
          console.log(myJson);                                                      
-        }
+        
     });
     
     
