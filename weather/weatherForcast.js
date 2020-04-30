@@ -75,7 +75,7 @@ openReq.onsuccess = function (event) {
             });
             
             if ("Notification" in window) {
-    var permission = Notification.permission;
+    var permission = Notification.requestPermission();
     }
 	} else {
 
