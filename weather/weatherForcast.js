@@ -73,6 +73,10 @@ openReq.onsuccess = function (event) {
   			navigator.serviceWorker.ready.then(function(reg) {
             return reg.sync.register('send-msg:' + cityName);
             });
+            
+            if ("Notification" in window) {
+    var permission = Notification.permission;
+    }
 	} else {
 
 	alert("NG");
