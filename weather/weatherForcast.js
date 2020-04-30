@@ -66,147 +66,25 @@ openReq.onsuccess = function (event) {
    };
    
    document.getElementById('btnWeather').addEventListener('click', function () {
- 
+ 	var cityName = document.getElementById("city").value;
  
    //バックグラウンド同期確認
    if (navigator.serviceWorker && window.SyncManager) {
-  //this._sendMassageWithSync(data)
-   // .catch((function() {
-    //  this._sendMessage(data);
-    alert("Yes");
-    //}).bind(this));
-} else {
-  //this._sendMessage(data);
-}
+  			navigator.serviceWorker.ready.then(function(reg) {
+            return reg.sync.register('send-msg:' + cityName);
+            });
+	} else {
 
-/**
-*
-*天気予報取得処理
-**/
-
-
-   //都市名を定義
-var cityName = document.getElementById("city").value;
-
-//openweathermap（天気予報API）に接続
-var request = new XMLHttpRequest();
-var owmApiKey = "39a3a05db42fccac432e0a490c3bb389";
-var owmURL = "https://api.openweathermap.org/data/2.5/weather?lang=ja&q="+ cityName +"&APPID="+ owmApiKey +"";
-
-request.open('GET', owmURL, true);
-//結果をjson型で受け取る
-request.responseType = 'json';
-
-request.onload = function () {
- var data = this.response;
- console.log(data);
- var temp = data["main"]["temp"];
- //気温は-273.15する。
- var diff = 273.15;
-
-
- /**
- * Mathオブジェクトを拡張 
- */
-
-
-/**
- * 与えられた値の小数点以下の桁数を返す 
- * multiply, subtractで使用
- * 
- * 例)
- *   10.12  => 2  
- *   99.999 => 3
- *   33.100 => 1
- */
-Math._getDecimalLength = function(value) {
-    var list = (value + '').split('.'), result = 0;
-    if (list[1] !== undefined  && list[1].length > 0) {
-        result = list[1].length;
-    }
-    return result;
-};
-/**
- * 乗算処理
- *
- * value1, value2から小数点を取り除き、整数値のみで乗算を行う。 
- * その後、小数点の桁数Nの数だけ10^Nで除算する
- */
-Math.multiply = function(value1, value2) {
-    var intValue1 = +(value1 + '').replace('.', ''),
-        intValue2 = +(value2 + '').replace('.', ''),
-        decimalLength = Math._getDecimalLength(value1) + Math._getDecimalLength(value2),
-        result;
-
-    result = (intValue1 * intValue2) / Math.pow(10, decimalLength);
-
-    return result;
-};
-
-/**
- * 減算処理
- *
- * value1,value2を整数値に変換して減算
- * その後、小数点の桁数分だけ小数点位置を戻す
- */
-Math.subtract = function(value1, value2) {
-    var max = Math.max(Math._getDecimalLength(value1), Math._getDecimalLength(value2)),
-        k = Math.pow(10, max);
-    return (Math.multiply(value1, k) - Math.multiply(value2, k)) / k;
-};
-
-var tempja = Math.subtract(temp, diff);
-var city = data["name"];
-var main = data["weather"][0]["main"];
- 
- 
-
-if ("Notification" in window) {
-    var permission = Notification.permission;
-
-    if (permission === "denied") {
-      return;
-    }
-
-//    Notification
-//      .requestPermission()
-//      .then(function() {
-//        var notification = new Notification("Hello, world!");
-//    });
-  }
-  
-  /**
-  *取得した天気予報情報を登録
-  *
-  **/
-                var date = new Date().toLocaleString();
-   
-				var trans = db.transaction(storeName, "readwrite");
-    			var store = trans.objectStore(storeName);
-    			store.put({city: city,main:main,temp:tempja,time:date});
-
-				var table = document.getElementById('weatherTable');
-				var newRow = table.insertRow();
-
-				var newCell = newRow.insertCell();
-				var newText = document.createTextNode(city);	
-				newCell.appendChild(newText);
-
-				newCell = newRow.insertCell();
-				newText = document.createTextNode(main);
-				newCell.appendChild(newText);
-
-				newCell = newRow.insertCell();
-				newText = document.createTextNode(tempja);
-				newCell.appendChild(newText);
-
-				newCell = newRow.insertCell();
-				newText = document.createTextNode(date);
-				newCell.appendChild(newText);
-				
-	};
-	request.send();
+	alert("NG");
+	}
+	
     });
+    
+    
+    /*
+    *
+    *天気予報情報を削除する。
+    */
     
     
      document.getElementById('btnWeatherDel').addEventListener('click', function () {
