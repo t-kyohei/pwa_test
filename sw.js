@@ -113,8 +113,10 @@ self.addEventListener('sync', function(evt) {
         return response.json();
     })
     .then(function(myJson) {
-         console.log(myJson);                                                      
-        
+         console.log(myJson);          
+         console.log(myJson.name);          
+         console.log(myJson.weather[0].main);          
+         
     });
     
     
