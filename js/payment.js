@@ -152,6 +152,12 @@ if(window.PaymentRequest) {
         supportedNetworks: ["amex", "discover", "masterCard", "visa"],
         countryCode: "US",
     }
+    },{supportedMethods: ['basic-card'],
+    		data: {
+      			supportedNetworks: [
+        		'visa', 'mastercard', 'amex', 'diners', 'jcb'
+      			]
+    		}
     }
 	];
 
