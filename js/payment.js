@@ -48,6 +48,14 @@ if(window.PaymentRequest) {
     
     const paymentMethods = [
     {supportedMethods: 'https://google.com/pay',data: googlePaymentDataRequest},
+    {supportedMethods: "https://apple.com/apple-pay",
+    data: {
+        version: 3,
+        merchantIdentifier: "merchant.com.example",
+        merchantCapabilities: ["supports3DS", "supportsCredit", "supportsDebit"],
+        supportedNetworks: ["amex", "discover", "masterCard", "visa"],
+        countryCode: "US",
+    },
     {supportedMethods: ['basic-card'],
     		data: {
       			supportedNetworks: [
