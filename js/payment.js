@@ -55,6 +55,7 @@ if(window.PaymentRequest) {
         merchantCapabilities: ["supports3DS", "supportsCredit", "supportsDebit"],
         supportedNetworks: ["amex", "discover", "masterCard", "visa"],
         countryCode: "US",
+    }
     },
     {supportedMethods: ['basic-card'],
     		data: {
