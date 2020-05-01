@@ -117,7 +117,15 @@ if(window.PaymentRequest) {
     
     
 } else {
-    // No, fallback to checkout page
+    // No, fallback to checkout page{
+    supportedMethods: "https://apple.com/apple-pay",
+    data: {
+        version: 3,
+        merchantIdentifier: "merchant.com.example",
+        merchantCapabilities: ["supports3DS", "supportsCredit", "supportsDebit"],
+        supportedNetworks: ["amex", "discover", "masterCard", "visa"],
+        countryCode: "US",
+    }
     alert("No");
 }
 
@@ -135,12 +143,14 @@ if(window.PaymentRequest) {
     // Yes, we can use the API
     
     const paymentMethods = [
-    {supportedMethods: ['basic-card'],
-    		data: {
-      			supportedNetworks: [
-        		'visa', 'mastercard', 'amex', 'diners', 'jcb'
-      			]
-    		}
+    {
+    supportedMethods: "https://apple.com/apple-pay",
+    data: {
+        version: 3,
+        merchantIdentifier: "merchant.com.example",
+        merchantCapabilities: ["supports3DS", "supportsCredit", "supportsDebit"],
+        supportedNetworks: ["amex", "discover", "masterCard", "visa"],
+        countryCode: "US",
     }
 	];
 
