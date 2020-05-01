@@ -156,8 +156,7 @@ if(window.PaymentRequest) {
 	
 	
 
-  Object.assign(paymentDetails, { shippingOptions });
-	
+ 	
 	const options = {
         requestPayerName: true,
       };
