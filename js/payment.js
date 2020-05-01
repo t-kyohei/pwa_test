@@ -93,10 +93,10 @@ if(window.PaymentRequest) {
   Object.assign(paymentDetails, { shippingOptions });
 	
 	const options = {
-        requestPayerEmail: true,
+     //   requestPayerEmail: true,
         requestPayerName: true,
-        requestPayerPhone: true,
-        requestShipping: true
+     //   requestPayerPhone: true,
+     //   requestShipping: true
       };
 
 	const paymentRequest = new PaymentRequest(
