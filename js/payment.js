@@ -152,6 +152,7 @@ if(window.PaymentRequest) {
         supportedNetworks: ["amex", "discover", "masterCard", "visa"],
         countryCode: "US",
     }
+    }
 	];
 
 	const paymentDetails = {
