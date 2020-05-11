@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="../btn.css" />
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script src="./js/location.js"></script>
+  <script src="http://maps.google.com/maps/api/js?key=AIzaSyCAWvkcQkt-KWtbhr6LZFHkdaMW2pdwXug&language=ja"></script>
     <script>
 window.addEventListener('load', function() {
   
@@ -107,8 +108,7 @@ navigator.serviceWorker.controller
       <p class="long">経度: </p>
     </div>-->
 
-</body>
-</html><table border="1" id="locationTable">
+<table border="1" id="locationTable">
     <tr>
       <th>緯度</th>
       <th>経度</th>
@@ -120,3 +120,17 @@ navigator.serviceWorker.controller
       <td class="time"></td>
     </tr>-->
   </table>
+  
+  <div id="map"></div>
+  <script>
+var MyLatLng = new google.maps.LatLng(35.6811673, 139.7670516);
+var Options = {
+ zoom: 15,      //地図の縮尺値
+ center: MyLatLng,    //地図の中心座標
+ mapTypeId: 'roadmap'   //地図の種類
+};
+var map = new google.maps.Map(document.getElementById('map'), Options);
+</script>
+
+</body>
+</html>
