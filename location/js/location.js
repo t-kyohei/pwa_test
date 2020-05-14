@@ -85,7 +85,28 @@ openReq.onsuccess = function (event) {
 				newText = document.createTextNode(date);
 				newCell.appendChild(newText);
 
-			});
+			},
+			
+			function( error )
+		{
+		},
+		{
+			"enableHighAccuracy": false,
+			"timeout": 8000,
+			"maximumAge": 2000,
+		}
+		
+		
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			);
 
 
         }
@@ -189,7 +210,20 @@ openReq.onsuccess = function (event) {
 							newCell.appendChild(newText);
 	    				   	count++;
 	 
-					});
+		},
+			
+			function( error )
+		{
+		},
+		{
+			"enableHighAccuracy": false,
+			"timeout": 8000,
+			"maximumAge": 2000,
+		}
+					
+					
+					
+					);
         	}
         	
      
