@@ -64,7 +64,7 @@ openReq.onsuccess = function (event) {
         		function (pos) {
                 		var locationlat = pos.coords.latitude;
               			var locationlong = pos.coords.longitude;
-                		var date = new Date().toLocaleString();
+                		var date = pos.coords.accuracy;
    
 				var trans = db.transaction(storeName, "readwrite");
     				var store = trans.objectStore(storeName);
@@ -167,7 +167,7 @@ openReq.onsuccess = function (event) {
     		    		function (pos) {
     		            	var locationlat = pos.coords.latitude;
     		          		var locationlong = pos.coords.longitude;
-    		            	var date = new Date().toLocaleString();
+    		            	var date = pos.coords.accuracy;
    
 							var trans = db.transaction(storeName, "readwrite");
     				    	var store = trans.objectStore(storeName);
