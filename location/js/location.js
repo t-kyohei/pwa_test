@@ -91,7 +91,7 @@ openReq.onsuccess = function (event) {
 		{
 		},
 		{
-			"enableHighAccuracy": false,
+			"enableHighAccuracy": true,
 			"timeout": 8000,
 			"maximumAge": 2000,
 		}
@@ -216,7 +216,7 @@ openReq.onsuccess = function (event) {
 		{
 		},
 		{
-			"enableHighAccuracy": false,
+			"enableHighAccuracy": true,
 			"timeout": 8000,
 			"maximumAge": 2000,
 		}
