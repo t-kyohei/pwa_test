@@ -95,17 +95,6 @@ openReq.onsuccess = function (event) {
 			"timeout": 8000,
 			"maximumAge": 2000,
 		}
-		
-		
-			
-			
-			
-			
-			
-			
-			
-			
-			
 			);
 
 
