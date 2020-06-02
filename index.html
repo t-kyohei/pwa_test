@@ -63,7 +63,7 @@ window.addEventListener('load', function() {
 <br>
 <br>
 <br>
-<button class="add-button" onclick="pwaInstall()">ホーム画面に追加</button>
+<button class="add-button">ホーム画面に追加</button>
 <!--<div class="container">
 <a href="push" class="btn-square">push</a>
 </div>
@@ -92,27 +92,33 @@ window.addEventListener('load', function() {
 </style>
 
 <script>
-window.addEventListener('load', function(event) {
-    event.preventDefault();
-    defferedPrompt = event;
-    return false;
-})
- 
-// イベントを意図的に発火
-function pwaInstall() {
-    console.log('pwaInstall Click.');
-    if (defferedPrompt) {
-        defferedPrompt.prompt();
-        defferedPrompt.userChoice.then(function(choiceResult) {
-            if (choiceResult.outcome === 'dismissed') {
-                console.log('pwaInstall Click.');
-            } else {
-                window.alert('Thank You!');
-            }
-        });
-        defferedPrompt = null;
-    }
-}
+let deferredPrompt;
+const addBtn = document.querySelector('.add-button');
+
+window.addEventListener('load', (e) => {
+  // Prevent Chrome 67 and earlier from automatically showing the prompt
+  e.preventDefault();
+  // Stash the event so it can be triggered later.
+  deferredPrompt = e;
+  // Update UI to notify the user they can add to home screen
+  addBtn.style.display = 'block';
+
+  addBtn.addEventListener('click', (e) => {
+    // hide our user interface that shows our A2HS button
+    addBtn.style.display = 'none';
+    // Show the prompt
+    deferredPrompt.prompt();
+    // Wait for the user to respond to the prompt
+    deferredPrompt.userChoice.then((choiceResult) => {
+        if (choiceResult.outcome === 'accepted') {
+          console.log('User accepted the A2HS prompt');
+        } else {
+          console.log('User dismissed the A2HS prompt');
+        }
+        deferredPrompt = null;
+      });
+  });
+});
 
 </script>
 
