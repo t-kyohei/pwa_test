@@ -92,13 +92,15 @@ window.addEventListener('load', function() {
 </style>
 
 <script>
-let deferredPrompt;
-const addBtn = document.querySelector('.add-button');
-
-
-
-  addBtn.addEventListener('click', (e) => {
-     console.log('pwaInstall Click.');
+window.addEventListener('load', function(event) {
+    event.preventDefault();
+    defferedPrompt = event;
+    return false;
+})
+ 
+// イベントを意図的に発火
+function pwaInstall() {
+    console.log('pwaInstall Click.');
     if (defferedPrompt) {
         defferedPrompt.prompt();
         defferedPrompt.userChoice.then(function(choiceResult) {
@@ -110,8 +112,7 @@ const addBtn = document.querySelector('.add-button');
         });
         defferedPrompt = null;
     }
-  });
-
+}
 
 </script>
 
