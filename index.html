@@ -63,7 +63,6 @@ window.addEventListener('load', function() {
 <br>
 <br>
 <br>
-<button class="add-button">ホーム画面に追加</button>
 <!--<div class="container">
 <a href="push" class="btn-square">push</a>
 </div>
@@ -84,41 +83,11 @@ window.addEventListener('load', function() {
 </div>-->
     </body>
 <style>
-.add-button {
-  position: absolute;
-  top: 1px;
-  left: 1px;
-}
+
 </style>
 
 <script>
-let deferredPrompt;
-const addBtn = document.querySelector('.add-button');
 
-window.addEventListener('load', (e) => {
-  // Prevent Chrome 67 and earlier from automatically showing the prompt
-  e.preventDefault();
-  // Stash the event so it can be triggered later.
-  deferredPrompt = e;
-  // Update UI to notify the user they can add to home screen
-  addBtn.style.display = 'block';
-
-  addBtn.addEventListener('click', (e) => {
-    // hide our user interface that shows our A2HS button
-    addBtn.style.display = 'none';
-    // Show the prompt
-    deferredPrompt.prompt();
-    // Wait for the user to respond to the prompt
-    deferredPrompt.userChoice.then((choiceResult) => {
-        if (choiceResult.outcome === 'accepted') {
-          console.log('User accepted the A2HS prompt');
-        } else {
-          console.log('User dismissed the A2HS prompt');
-        }
-        deferredPrompt = null;
-      });
-  });
-});
 
 </script>
 
