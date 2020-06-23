@@ -40,6 +40,22 @@ window.addEventListener('load', function() {
 
 </script>
 
+<script>
+function setcokoie(){
+document.cookie = 'data1=123';
+}
+
+
+function getcookie(){
+console.log(document.cookie)
+var  divp = document.getElementById("cookie");
+divp.textContent = document.cookie;
+}
+
+
+</script>
+
+
 <script src="https://pay.google.com/gp/p/js/pay.js"></script>
 
 
@@ -93,20 +109,6 @@ window.addEventListener('load', function() {
 <br>
 
 
-<script>
-function setcokoie(){
-document.cookie = 'data1=123';
-}
-
-
-function getcookie(){
-console.log(document.cookie)
-var  divp = document.getElementById("cookie");
-divp.textContent = document.cookie;
-}
-
-
-</script>
 
 <!--<div class="container">
 <a href="push" class="btn-square">push</a>
