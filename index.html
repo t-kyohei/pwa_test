@@ -75,7 +75,39 @@ window.addEventListener('load', function() {
 <a href="weather" class="btn-square">天気予報登録(バックグラウンド同期)</a>
 <br>
 <br>
+
 <br>
+<div class="container">
+<button class="btn-square" onclick="setcookie()">cookie書き込み</button>
+</div>
+<br>
+
+<br>
+
+<div class="container">
+<button class="btn-square" onclick="getcookie()">cookie取得</button>
+<div id="cookie" class="">  </div>
+</div>
+
+<br>
+<br>
+
+
+<script>
+funtion setcokoie(){
+document.cookie = 'data1=123';
+}
+
+
+funtion getcookie(){
+console.log(document.cookie)
+var  divp = document.getElementById("cookie");
+divp.textContent = document.cookie;
+}
+
+
+</script>
+
 <!--<div class="container">
 <a href="push" class="btn-square">push</a>
 </div>
