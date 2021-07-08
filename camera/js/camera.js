@@ -13,7 +13,13 @@ function openCamera() {
     var constraints = { video: { facingMode: 'environment'} };
     navigator.mediaDevices.getUserMedia(constraints)
         .then(function(stream) {
-            video.srcObject = stream;
+	        myStream = stream;
+            
+            if('srcObject' in video){
+        	video.srcObject = myStream;
+     		 }else{
+        	video.src = window.URL.createObjectURL(myStream);
+     		 }
             video.onloadedmetadata = function(e) {
                 video.play();
             };
